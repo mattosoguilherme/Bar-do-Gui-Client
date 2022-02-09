@@ -5,13 +5,18 @@ const FormLogin = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-top:7rem;
   width: 35rem;
   padding: 1rem;
-  margin: 5rem 2rem 5rem 0;
   border-radius:1rem;
   box-shadow: 3px 3px 10px 3px;
-  @media (max-width:989px){
+  @media (max-width:900px){
       width: 20rem;
+  }
+
+  h1{
+    align-self:center;
+    color:white;
   }
 
   label {
@@ -38,9 +43,15 @@ const FormLogin = styled.form`
     align-items: center;
     padding: 0.2rem;
     width: 5rem;
+    border-radius: 5px;
+
   }
   a {
     color: white;
+
+    &:hover{
+        color:blue;
+    }
   }
 `;
 
