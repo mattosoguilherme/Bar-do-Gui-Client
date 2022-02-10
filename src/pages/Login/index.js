@@ -7,12 +7,15 @@ const Login = () => {
 
   const visibilityPass = () => {
     const pass = document.getElementById("password");
+    const eye = document.getElementById("eye")
 
     if (visible) {
       pass.type = "text";
+      eye.src="https://cdn-icons.flaticon.com/png/512/2767/premium/2767194.png?token=exp=1644510349~hmac=692a311eedc822dff4e8029f2263b812"
       setVisible(false);
     } else {
       pass.type = "password";
+      eye.src = "https://cdn-icons-png.flaticon.com/512/633/633655.png"
       setVisible(true);
     }
   };
@@ -35,7 +38,7 @@ const Login = () => {
       <FormLogin method="POST" onSubmit={handleSubmit}>
         <h1>Login</h1>
 
-        <label htmlFor="email">Email:</label>
+        <label htmlFor="email">Email</label>
         <input
           type="email"
           id="email"
@@ -43,17 +46,17 @@ const Login = () => {
           required
         ></input>
 
-        <label htmlFor="password">Senha:</label>
+        <label htmlFor="password">Senha</label>
         <DivPass>
-          <button onClick={visibilityPass} type="button">
-            <img
-              id="eye"
-              src="https://img.icons8.com/fluency-systems-filled/344/visible.png"
-              alt="VisiblePassword"
-              width="30"
-              height="24"
-            />
-          </button>
+        <button onClick={visibilityPass} type="button">
+              <img
+                id="eye"
+                src="https://cdn-icons-png.flaticon.com/512/633/633655.png"
+                alt="VisiblePassword"
+                width="30"
+                height="24"
+              />
+            </button>
 
           <input
             type="password"

@@ -33,8 +33,14 @@ export const ButtonLogin = styled.button`
   justify-content: center;
   align-items: center;
   padding: 0.2rem;
-  width: 5rem;
+  width: 7rem;
   border-radius: 5px;
+  text-align:center;
+
+  &:hover{
+    color:#A6122D;
+    background-color:transparent
+  }
 `;
 
 export const FormLogin = styled.form`
@@ -65,6 +71,7 @@ export const FormLogin = styled.form`
     height: 3rem;
     font-size: 1rem;
     padding-left: 0.3rem;
+    border-radius:0.3rem;
   }
 
   img{
@@ -84,7 +91,7 @@ export const FormLogin = styled.form`
     color: white;
 
     &:hover{
-        color:blue;
+        color:#A6122D;
     }
   }
 `;
