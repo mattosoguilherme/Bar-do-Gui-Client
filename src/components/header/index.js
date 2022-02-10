@@ -1,3 +1,5 @@
+// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Navbar from "./style";
 
 const Header = () => {
@@ -5,11 +7,13 @@ const Header = () => {
     <>
       <Navbar>
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+          <Link className="navbar-brand" to="/">
             Bar do Gui
-          </a>
+          </Link>
 
-          <a className="navbar-brand" href="#">Cadastra-se</a>
+          <Link className="navbar-brand" to="/RegisterUser">
+            Cadastra-se
+          </Link>
         </div>
       </Navbar>
     </>
