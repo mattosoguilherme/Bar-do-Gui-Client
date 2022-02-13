@@ -1,15 +1,23 @@
 import Login from "./pages/Login";
 import { Routes, Route } from "react-router-dom";
 import RegisterUser from "./pages/register/user";
-import Recover from "./pages/recorver";
+import Home from "./pages/home";
+import Menu from "./pages/menu";
+import RegisterTable from "./pages/register/table";
+import Profile from "./pages/profile";
+
 
 const Bardogui = () => {
   return (
     <>
+  
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/RegisterUser" element={<RegisterUser />} />
-        <Route path="/Recover" element={<Recover />} />
+        <Route path="/RegisterTable" element={<RegisterTable/>}/>
+        <Route path="/home" element={<Home/>} />
+        <Route path="/menu" element={<Menu/>} />
+        <Route path="/profile" element={<Profile />}/>  
       </Routes>
     </>
   );

@@ -10,14 +10,24 @@ const Navbar = styled.nav`
   padding-bottom: 0.5rem;
   background-color: #260707;
 
-  div{
-      display:flex;
-      justify-content:space-between;
+  div {
+    display: flex;
+    justify-content: space-between;
   }
 
-  a{
-      font-size:2rem;
-      color:white;
+
+  a {
+    font-size: 2rem;
+    color: white;
+    padding: 0.2rem;
+  }
+  #register:hover{
+    color:#A6122D;
+  }
+
+  .options{
+    background-color: transparent;
+    color:black
   }
 `;
 

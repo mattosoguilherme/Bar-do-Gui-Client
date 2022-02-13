@@ -9,6 +9,11 @@ const Container = styled.main`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media (max-width:420px) {
+    background-color: #260707;
+    height: 1000px;
+    align-items: start;
+  }
 `;
 
 export const DivPass = styled.div`
@@ -30,11 +35,12 @@ export const DivPass = styled.div`
 
 export const ButtonLogin = styled.button`
   display: flex;
+  align-self: center;
   justify-content: center;
   align-items: center;
   padding: 0.2rem;
   width: 7rem;
-  border-radius: 5px;
+  border-radius: 0.5rem;
   text-align:center;
 
   &:hover{
@@ -48,46 +54,56 @@ export const FormLogin = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top:8rem;
+  margin-top:6rem;
   width: 30rem;
   padding: 1rem;
   border-radius:1rem;
   box-shadow: 3px 3px 10px 3px;
   @media (max-width:900px){
-      width: 20rem;
+      width: 25rem;
+      margin-top:5rem;
+      border:none;
+      box-shadow: none;
   }
 
   h1{
+    font-size:3rem;
     align-self:center;
     color:white;
-  }
-
-  label {
-    color: white;
-    font-size: 1.5rem;
   }
 
   input {
     height: 3rem;
     font-size: 1rem;
     padding-left: 0.3rem;
-    border-radius:0.3rem;
+    margin-bottom: 2rem;
+    background-color: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    color:white;
   }
 
   img{
     display: flex;
     position: relative;
     align-self:end;
+    margin-bottom: 2rem;
   }
+ 
 
   div {
     display: flex;
     margin-top: 0.7rem;
-    justify-content: space-between;
     font-size: 1.2rem;
   }
 
-  a {
+  #div-button{
+    display: flex;
+    justify-content: center;
+  }
+
+  a { 
     color: white;
 
     &:hover{

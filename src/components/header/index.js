@@ -3,19 +3,19 @@ import Navbar from "./style";
 
 const Header = () => {
   return (
-    <>
+
       <Navbar>
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
             Bar do Gui
           </Link>
 
-          <Link className="navbar-brand" to="/RegisterUser">
+          <Link id="register"className="navbar-brand" to="/RegisterUser">
             Cadastra-se
           </Link>
         </div>
       </Navbar>
-    </>
+
   );
 };
 
