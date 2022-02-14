@@ -1,22 +1,35 @@
+import { useState } from "react";
 import { Badge } from "react-bootstrap";
 import CardItem, { Container } from "./style";
 
+const Item = (props) => {
+  const item = props.data;
 
+  const [check, setCheck] = useState();
 
-const Item = () => {
+  const order = [];
+
+  if (check) {
+    order.push(item);
+    setCheck(false);
+  }
+
+  console.log(order);
+
   return (
     <CardItem>
       <Container>
-        <img
-          alt="caipinha"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzQ4gZyiHrMz8l37BIaFwUAktYfjJ_Tr_yjQ&usqp=CAU"
-        />
-        <h2>Mojito</h2>
+        <input
+          type="checkbox"
+          onChange={(event) => setCheck(event.target.checked)}
+        ></input>
+        <img alt="caipinha" src={item.imgUrl} />
+        <h2 id="title">{item.title}</h2>
         <div className="card-body">
-          <p className="card-text">Mojito é um coquetel à base de rum branco originário de Cuba.</p>
+          <p className="card-text">Detalhes: {item.description}</p>
         </div>
         <div className="badgePrice">
-          <Badge>R$ 30,00</Badge>
+          <Badge>R$ {item.price}</Badge>
         </div>
       </Container>
     </CardItem>

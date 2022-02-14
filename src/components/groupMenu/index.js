@@ -1,6 +1,8 @@
+import axios from "axios";
+import { useEffect } from "react";
+import { useState } from "react";
 import styled from "styled-components";
-import Item from "../card/item"
-
+import Item from "../card/item";
 
 const ContainerS = styled.main`
   width: 100%;
@@ -10,27 +12,42 @@ const ContainerS = styled.main`
   margin-left: auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content:center;
-  justify-content:space-around;
+  justify-content: center;
+  justify-content: space-around;
 `;
 
 const GroupMenu = () => {
-    return <ContainerS>
-        <Item/>
-        <Item/>
-        <Item/>
-        <Item/>
-        <Item/>
-        <Item/>
-        <Item/>
-        <Item/>
-        <Item/>
-        <Item/>
-        <Item/>
-        <Item/>
-        <Item/>
-        <Item/>
+  const [item, setItem] = useState([]);
+  const [logged, setLogged] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.token;
+
+    if(!token){
+      setLogged(false)
+    }
+    const config = {
+      headers:{Authorization:`Bearer ${token}`}
+    }
+
+    axios
+    .get("/menu", config)
+    .then((res) => {
+      setItem(res.data)
+      setLogged(true)
+    })
+    .catch((erro) => console.error(erro));
+
+  }, [logged])
+
+ 
+  return (
+    <ContainerS>
+      {item.map((item) => (
+        <Item data={item} key={item.id} />
+      ))}
     </ContainerS>
-}
+  );
+};
 
 export default GroupMenu;

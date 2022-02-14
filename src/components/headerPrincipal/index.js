@@ -62,8 +62,8 @@ const HeaderPrincipal = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/gerencia">
-                      Gerencia
+                    <Link className="dropdown-item" to="/admin">
+                      Admin
                     </Link>
                   </li>
                   <li>

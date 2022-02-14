@@ -5,6 +5,7 @@ import Home from "./pages/home";
 import Menu from "./pages/menu";
 import RegisterTable from "./pages/register/table";
 import Profile from "./pages/profile";
+import Admin from "./pages/Admin";
 
 
 const Bardogui = () => {
@@ -18,6 +19,7 @@ const Bardogui = () => {
         <Route path="/home" element={<Home/>} />
         <Route path="/menu" element={<Menu/>} />
         <Route path="/profile" element={<Profile />}/>  
+        <Route path="/admin" element={<Admin/>} />
       </Routes>
     </>
   );

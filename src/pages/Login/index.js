@@ -36,17 +36,15 @@ const Login = () => {
       password,
     };
 
-    console.log(loginUser);
-
     axios
       .post("/auth", loginUser)
       .then((response) => {
-        console.log(response)
         const token = response.data.token;
         localStorage.setItem('token',token)
 
         if(token){
           navigate("/home")
+          alert("Logado com sucesso")
         }
       })
       .catch((e) => {
