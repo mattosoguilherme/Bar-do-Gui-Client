@@ -18,10 +18,6 @@ const HeaderS = styled.nav`
     color:black !important;
   }
 
-  .dropdown-menu{
-    background-color:#BF382C
-  }
-
   button {
     align-self: end;
     background-color: transparent;

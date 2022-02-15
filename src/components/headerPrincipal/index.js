@@ -32,7 +32,7 @@ const HeaderPrincipal = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/RegisterTable">
+                <Link className="nav-link" to="/Register/table">
                   Criar Mesa
                 </Link>
               </li>

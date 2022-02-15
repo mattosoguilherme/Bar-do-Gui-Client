@@ -6,8 +6,9 @@ import Bardogui from "./bardogui";
 import axios from "axios";
 import GlobalStyle from "./styles/global";
 
-axios.defaults.baseURL = 'http://localhost:3001/';
-axios.defaults.headers.post['Content-Type'] = 'application/json';
+
+axios.defaults.baseURL = "http://localhost:3001/";
+axios.defaults.headers.post["Content-Type"] = "application/json";
 
 ReactDOM.render(
   <React.StrictMode>

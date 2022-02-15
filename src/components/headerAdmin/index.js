@@ -6,8 +6,8 @@ const HeaderAdmin = () => {
     <>
       <HeaderS className=" navbar navbar-expand-lg navbar-dark">
         <div className="container-fluid">
-          <Link id="nameBar" className="navbar-brand" to="/home">
-            Bar do Gui
+          <Link id="nameBar" className="navbar-brand" to="/admin">
+          operacional
           </Link>
           <button
             className="navbar-toggler"
@@ -26,21 +26,17 @@ const HeaderAdmin = () => {
                 <Link
                   className="nav-link active"
                   aria-current="page"
-                  to="/home"
+                  to="/Register/item"
                 >
-                  Home
+                  criar item
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/RegisterTable">
-                  Criar Mesa
+                <Link className="nav-link" to="/Register">
+                  usuários
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/menu">
-                  Menu
-                </Link>
-              </li>
+
               <li className="nav-item dropdown ">
                 <a
                   className="nav-link dropdown-toggle"
@@ -56,8 +52,8 @@ const HeaderAdmin = () => {
                   aria-labelledby="navbarDropdownMenuLink"
                 >
                   <li>
-                    <Link className="dropdown-item" to="/profile">
-                      Perfil
+                    <Link className="dropdown-item" to="/home">
+                      Voltar
                     </Link>
                   </li>
                   <li>

@@ -10,7 +10,7 @@ const Header = () => {
             Bar do Gui
           </Link>
 
-          <Link id="register"className="navbar-brand" to="/RegisterUser">
+          <Link id="register"className="navbar-brand" to="/Register/user">
             Cadastra-se
           </Link>
         </div>

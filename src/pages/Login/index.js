@@ -1,6 +1,6 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import Container, { FormLogin, ButtonLogin, DivPass } from "./styles";
+import { FormLogin, ButtonLogin, DivPass } from "./styles";
 import axios from "axios";
 import Header from "../../components/header";
 import ContainerS from "../../components/container/style";
@@ -41,19 +41,17 @@ const Login = () => {
       .post("/auth", loginUser)
       .then((response) => {
         const token = response.data.token;
-        localStorage.setItem('token',token)
+        localStorage.setItem("token", token);
 
-        if(token){
-          navigate("/home")
-          alert("Logado com sucesso")
+        if (token) {
+          navigate("/home");
+          alert("Logado com sucesso");
         }
       })
       .catch((e) => {
-        console.error(e.message)
-        alert(e.message)
+        console.error(e.message);
+        alert(e.message);
       });
-    
-      
   };
 
   return (
