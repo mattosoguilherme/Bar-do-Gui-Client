@@ -9,6 +9,7 @@ import RegisterTable from "./pages/register/table";
 import Profile from "./pages/profile";
 import Admin from "./pages/Admin";
 import RegisterItem from "./pages/register/item";
+import EditProfile from "./pages/edit/user/profile";
 
 const Bardogui = () => {
   return (
@@ -18,6 +19,7 @@ const Bardogui = () => {
         <Route path="/Register/user" element={<RegisterUser />} />
         <Route path="/Register/table" element={<RegisterTable />} />
         <Route path="/Register/item" element={<RegisterItem />} />
+        <Route path="/Edit/user" element={<EditProfile/>} />
         <Route path="/home" element={<Home />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/profile" element={<Profile />} />

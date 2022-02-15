@@ -22,6 +22,8 @@ const RegisterTable = () => {
       <HeaderPrincipal />
       <Container>
         <FormRegister onSubmit={handleSubmit}>
+
+          <h1>Cadastro Mesa</h1>
           <label>Observação</label>
           <textarea id="observation" placeholder="Digite aqui..." />
 

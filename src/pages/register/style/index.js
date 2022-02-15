@@ -16,7 +16,7 @@ export const FormRegister = styled.form`
     box-shadow: none;
   }
   h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     align-self: center;
     color: white;
   }
@@ -94,7 +94,7 @@ export const FormRegisterAdm = styled.form`
     box-shadow: none;
   }
   h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     align-self: center;
     color: white;
   }

@@ -4,22 +4,44 @@ import Container from "../Login/styles";
 import { FormRegister } from "../register/style";
 
 const Profile = () => {
-    const [resposta, setResposta] = useState();
+  const [edit, setEdit] = useState(false);
+  const handle = (event) => {
+      event.preventDefault();
+      setEdit(true)
+  }
+  const handleC =(event) => {
+    event.preventDefault();
+    setEdit(false)
 
-    const Yes = () => setResposta(true)
-    const Not = () => setResposta(false)
-
+  }
   return (
     <>
       <HeaderPrincipal />
       <Container>
-        <FormRegister>
-            <h1>Você quer me ajudar?</h1>
-          <div className="group-btn">
-            <button type="button" onClick={Yes} className="btnRegister">sim</button>
-            <button type="button" onClick={Not} className="btnRegister">não</button>
-          </div>
-        </FormRegister>
+        {!edit && (
+          <>
+            <FormRegister>
+              <input />
+              <input />
+              <div className="group-btn">
+                <button className="btnRegister">Voltar</button>
+                <button type="button" onClick={handle} className="btnRegister">Editar</button>
+              </div>
+            </FormRegister>
+          </>
+        )}
+        {edit &&(
+          <>
+            <FormRegister>
+            <input />
+              <input />
+              <div className="group-btn">
+                <button className="btnRegister" onClick={handleC} >Voltar</button>
+                <button type="button"className="btnRegister">Salvar</button>
+              </div>
+            </FormRegister>
+          </>
+        )}
       </Container>
     </>
   );
