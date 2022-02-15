@@ -31,9 +31,14 @@ const HeaderAdmin = () => {
                   criar item
                 </Link>
               </li>
+
               <li className="nav-item">
-                <Link className="nav-link" to="/Register">
-                  usuários
+                <Link
+                  className="nav-link active"
+                  aria-current="page"
+                  to="/menu"
+                >
+                 Menu
                 </Link>
               </li>
 
@@ -53,14 +58,10 @@ const HeaderAdmin = () => {
                 >
                   <li>
                     <Link className="dropdown-item" to="/home">
-                      Voltar
+                      Voltar a Home
                     </Link>
                   </li>
-                  <li>
-                    <Link className="dropdown-item" to="/admin">
-                      Admin
-                    </Link>
-                  </li>
+
                   <li>
                     <Link className="dropdown-item" to="/">
                       Sair

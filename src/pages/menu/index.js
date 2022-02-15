@@ -1,9 +1,10 @@
 import GroupMenu from "../../components/groupMenu";
-import HeaderPrincipal from "../../components/headerPrincipal";
+import HeaderAdmin from "../../components/headerAdmin";
+ 
 
 const Menu = () => {
     return<>
-    <HeaderPrincipal/>
+    <HeaderAdmin/>
     <GroupMenu/>
     </>
 }

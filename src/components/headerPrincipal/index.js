@@ -36,11 +36,7 @@ const HeaderPrincipal = () => {
                   Criar Mesa
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/menu">
-                  Menu
-                </Link>
-              </li>
+
               <li className="nav-item dropdown ">
                 <a
                   className="nav-link dropdown-toggle"
