@@ -13,7 +13,6 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <GlobalStyle />
-
       <Bardogui />
     </BrowserRouter>
   </React.StrictMode>,

@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import Container, { DivPass } from "../../Login/styles";
+import { DivPass } from "../../Login/styles";
 import { FormRegister } from "../style";
 import Header from "../../../components/header";
 import axios from "axios";
-import { useEffect, useRef } from "react";
+import ContainerS from "../../../components/container/style";
 
 const RegisterUser = () => {
   const [visible, setVisible] = useState(true);
@@ -61,8 +61,7 @@ const RegisterUser = () => {
         
         })
         .catch((e) => alert(e.message));
-      
-      
+ 
         
     }
   };
@@ -70,7 +69,7 @@ const RegisterUser = () => {
   return (
     <>
       <Header />
-      <Container>
+      <ContainerS>
         <FormRegister method="POST" onSubmit={HandleSubmit}>
           <h1>cadastro </h1>
 
@@ -79,7 +78,6 @@ const RegisterUser = () => {
             id="name"
             type="text"
             placeholder="Digite aqui seu nome"
-            // onChange={e => setName(e.target.value)}
             name="name"
             required
           />
@@ -132,7 +130,7 @@ const RegisterUser = () => {
             </button>
           </div>
         </FormRegister>
-      </Container>
+      </ContainerS>
     </>
   );
 };

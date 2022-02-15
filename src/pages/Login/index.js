@@ -3,6 +3,7 @@ import { useState } from "react";
 import Container, { FormLogin, ButtonLogin, DivPass } from "./styles";
 import axios from "axios";
 import Header from "../../components/header";
+import ContainerS from "../../components/container/style";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -58,7 +59,7 @@ const Login = () => {
   return (
     <>
       <Header />
-      <Container>
+      <ContainerS>
         <FormLogin method="POST" onSubmit={handleSubmit}>
           <h1>Login</h1>
 
@@ -87,7 +88,7 @@ const Login = () => {
             <ButtonLogin type="submit">Entrar</ButtonLogin>
           </div>
         </FormLogin>
-      </Container>
+      </ContainerS>
     </>
   );
 };

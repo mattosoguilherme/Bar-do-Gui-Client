@@ -6,15 +6,17 @@ const Item = (props) => {
   const item = props.data;
 
   const [check, setCheck] = useState();
+  const [order,setOrder] = useState()
 
-  const order = [];
+  let orderList = []
+  orderList.push(order)
+
+  // console.log(orderList)
 
   if (check) {
-    order.push(item);
+    setOrder(item)
     setCheck(false);
   }
-
-  console.log(order);
 
   return (
     <CardItem>

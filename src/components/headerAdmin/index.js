@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import HeaderS from "./style";
 
-const HeaderPrincipal = () => {
+const HeaderAdmin = () => {
   return (
     <>
       <HeaderS className=" navbar navbar-expand-lg navbar-dark">
@@ -44,7 +44,6 @@ const HeaderPrincipal = () => {
               <li className="nav-item dropdown ">
                 <a
                   className="nav-link dropdown-toggle"
-                  // href="#"
                   id="navbarDropdownMenuLink"
                   role="button"
                   data-bs-toggle="dropdown"
@@ -81,4 +80,4 @@ const HeaderPrincipal = () => {
   );
 };
 
-export default HeaderPrincipal;
+export default HeaderAdmin;

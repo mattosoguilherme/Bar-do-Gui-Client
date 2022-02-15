@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const HeaderS = styled.nav`
-  background-color: #260707;
+  background-color: #262626;
   font-size:1.5rem;
 
   span{
@@ -15,7 +15,7 @@ const HeaderS = styled.nav`
     color: white !important;
   }
   .nav-link:hover{
-    color:#A6122D !important;
+    color:black !important;
   }
 
   .dropdown-menu{

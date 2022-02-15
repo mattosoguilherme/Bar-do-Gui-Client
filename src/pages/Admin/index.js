@@ -1,10 +1,44 @@
+import axios from "axios";
+import { useEffect } from "react";
+import { useState } from "react";
+import HeaderAdmin from "../../components/headerAdmin";
+
+
 const Admin = () => {
-    return<>Pagina Admin
-    funções executadas aqui:<br/>
-    <br/> - Editar senha dos const 
-    <br/> - Adcionar items no menu
-    <br/> -Editar item do menu
-    </>
-}
+  const [logged, setLogged] = useState(false);
+  const [admin, setAdmin] = useState("");
+  console.log(admin);
+
+  useEffect(() => {
+    const token = localStorage.token;
+
+    const frase = {nome:"Seu usuário não tem acesso ao essa parte do sistema"}
+
+    if (!token) {
+      setLogged(false);
+    }
+    const config = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
+
+    axios
+      .get("/auth", config)
+      .then((res) => {
+        setAdmin(res.data.role);
+        console.log(res.data);
+        setLogged(true);
+      })
+      .catch((erro) => console.error(erro));
+  }, [logged]);
+
+  return <>
+    <HeaderAdmin/>
+  {admin === "ADMIN" && <div>ta funcinando</div>}{
+      admin === "USER" &&   
+      <h2>Seu usuário não tem acesso ao essa parte do sistema</h2>
+  }
+
+  </>;
+};
 
 export default Admin;
