@@ -23,28 +23,40 @@ const GroupMenu = () => {
   useEffect(() => {
     const token = localStorage.token;
 
-    if(!token){
-      setLogged(false)
+    if (!token) {
+      setLogged(false);
     }
     const config = {
-      headers:{Authorization:`Bearer ${token}`}
-    }
+      headers: { Authorization: `Bearer ${token}` },
+    };
 
     axios
-    .get("/menu", config)
-    .then((res) => {
-      setItem(res.data)
-      setLogged(true)
-    })
-    .catch((erro) => console.error(erro));
+      .get("/menu", config)
+      .then((res) => {
+        setItem(res.data);
+        setLogged(true);
+      })
+      .catch((erro) => console.error(erro));
+  }, [logged]);
+  let listOrders = [];
+  const handle = (e, i) => {
+    console.log(e);
 
-  }, [logged])
+    if (e) {
+      listOrders.push(i);
+    }
 
- 
+    console.log(listOrders);
+  };
+
   return (
     <ContainerS>
       {item.map((item) => (
-        <Item data={item} key={item.id} />
+        <Item
+          onChange={(e) => handle(e.target.checked, item)}
+          data={item}
+          key={item.id}
+        />
       ))}
     </ContainerS>
   );

@@ -6,7 +6,6 @@ import HeaderAdmin from "../../components/headerAdmin";
 const Admin = () => {
   const [logged, setLogged] = useState(false);
   const [admin, setAdmin] = useState("");
-  console.log(admin);
 
   useEffect(() => {
     const token = localStorage.token;

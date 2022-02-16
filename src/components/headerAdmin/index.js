@@ -2,6 +2,16 @@ import { Link } from "react-router-dom";
 import HeaderS from "./style";
 
 const HeaderAdmin = () => {
+
+  const logOut = () =>{
+    const token = localStorage.token
+    if(token){
+     console.log(localStorage.removeItem("token")) 
+      alert("LogOut com sucesso")
+    }
+  }
+
+
   return (
     <>
       <HeaderS className=" navbar navbar-expand-lg navbar-dark">
@@ -41,6 +51,15 @@ const HeaderAdmin = () => {
                  Menu
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link
+                  className="nav-link active"
+                  aria-current="page"
+                  to="/Register/admin"
+                >
+                 cadastro admin
+                </Link>
+              </li>
 
               <li className="nav-item dropdown ">
                 <a
@@ -49,6 +68,7 @@ const HeaderAdmin = () => {
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
+                  href="#"
                 >
                   mais
                 </a>
@@ -63,7 +83,7 @@ const HeaderAdmin = () => {
                   </li>
 
                   <li>
-                    <Link className="dropdown-item" to="/">
+                    <Link onClick={logOut} className="dropdown-item" to="/">
                       Sair
                     </Link>
                   </li>
