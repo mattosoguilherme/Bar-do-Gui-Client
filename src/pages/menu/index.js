@@ -1,4 +1,4 @@
-import GroupMenu from "../../components/groupMenu";
+import GroupMenu from "../../components/Groups/menu";
 import HeaderAdmin from "../../components/headerAdmin";
  
 

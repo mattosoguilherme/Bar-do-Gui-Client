@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
-import { CardUser } from "../../components/card/user";
+import { Alert } from "react-bootstrap";
+import GroupUser from "../../components/Groups/user";
 import HeaderAdmin from "../../components/headerAdmin";
 
 const Admin = () => {
@@ -31,17 +32,19 @@ const Admin = () => {
   return (
     <>
       <HeaderAdmin />
-      {admin === "ADMIN" && <>
-
-        <CardUser/>
-
-      </>  }
+      {admin === "ADMIN" && (
+        <>
+          <GroupUser />
+        </>
+      )}
       {admin === "USER" && (
         <h2>Seu usuário não tem acesso ao essa parte do sistema</h2>
       )}
-      {!admin &&(
+      {!logged && (
         <>
-        <h1>VOCÊ NÃO ESTA LOGADO</h1>
+          <Alert variant="danger">
+            <Alert.Heading>Você não está logado faça login</Alert.Heading>
+          </Alert>
         </>
       )}
     </>

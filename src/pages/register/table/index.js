@@ -2,7 +2,7 @@ import HeaderPrincipal from "../../../components/headerPrincipal";
 import { FormRegister } from "../style";
 import Container from "../../Login/styles";
 import { Link } from "react-router-dom";
-import GroupMenu from "../../../components/groupMenu";
+import GroupMenu from "../../../components/Groups/menu";
 
 const RegisterTable = () => {
   const handleSubmit = (event) => {
