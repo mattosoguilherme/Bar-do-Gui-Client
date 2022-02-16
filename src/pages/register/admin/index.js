@@ -1,11 +1,12 @@
 import { ContainerAdm } from "../../../components/container/style";
-import { FormRegisterAdm } from "../style";
 import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { DivPass } from "../../Login/styles";
+import FormRegisterAdm from "../style";
+import HeaderAdmin from "../../../components/headerAdmin";
 
-export const RegisterAdm = () => {
+const RegisterAdm = () => {
   const [visible, setVisible] = useState(true);
 
   const visibilityPass = () => {
@@ -55,17 +56,18 @@ export const RegisterAdm = () => {
           alert("Cadastrado com sucesso");
           console.log(res);
         })
-        .catch((e) => {console.log(e)});
+        .catch((e) => {
+          console.log(e);
+        });
     }
   };
 
   return (
-      <>
-      
-
+    <>
+      <HeaderAdmin />
       <ContainerAdm>
         <FormRegisterAdm method="POST" onSubmit={HandleSubmit}>
-          <h1>cadastro </h1>
+          <h1>cadastro admin </h1>
 
           <label htmlFor="name">Nome</label>
           <input
@@ -135,3 +137,5 @@ export const RegisterAdm = () => {
     </>
   );
 };
+
+export default RegisterAdm;

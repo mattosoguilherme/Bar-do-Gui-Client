@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { DivPass } from "../../Login/styles";
-import { FormRegister } from "../style";
 import Header from "../../../components/header";
 import axios from "axios";
 import ContainerS from "../../../components/container/style";
+import { FormRegister } from "../style";
 
 const RegisterUser = () => {
   const [visible, setVisible] = useState(true);

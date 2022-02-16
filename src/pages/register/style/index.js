@@ -59,25 +59,25 @@ export const FormRegister = styled.form`
     }
   }
 
-  #btnOrder{
+  #btnOrder {
     border-radius: 0.3rem;
     height: 3rem;
-    font-size:1.5rem;
+    font-size: 1.5rem;
   }
 
-  .orders{
-    background-color:blue;
-    display:flex;
-    justify-content:center;
+  .orders {
+    background-color: blue;
+    display: flex;
+    justify-content: center;
     flex-direction: column;
     text-align: center;
   }
-  .orders button{
+  .orders button {
     margin-bottom: 0.5rem;
   }
 `;
 
-export const FormRegisterAdm = styled.form`
+const FormRegisterAdm = styled.form`
   background-color: #262626;
   display: flex;
   flex-direction: column;
@@ -138,24 +138,26 @@ export const FormRegisterAdm = styled.form`
     }
   }
 
-  select{
+  select {
     height: 3rem;
   }
 
-  #btnOrder{
+  #btnOrder {
     border-radius: 0.3rem;
     height: 3rem;
-    font-size:1.5rem;
+    font-size: 1.5rem;
   }
 
-  .orders{
-    background-color:blue;
-    display:flex;
-    justify-content:center;
+  .orders {
+    background-color: blue;
+    display: flex;
+    justify-content: center;
     flex-direction: column;
     text-align: center;
   }
-  .orders button{
+  .orders button {
     margin-bottom: 0.5rem;
   }
 `;
+
+export default FormRegisterAdm;

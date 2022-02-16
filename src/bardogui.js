@@ -8,7 +8,8 @@ import RegisterTable from "./pages/register/table";
 import Profile from "./pages/profile";
 import Admin from "./pages/Admin";
 import RegisterItem from "./pages/register/item";
-import { RegisterAdm } from "./pages/register/admin";
+import RegisterAdm  from "./pages/register/admin";
+import EditUser from "./pages/edit/user";
 
 const Bardogui = () => {
   return (
@@ -18,11 +19,13 @@ const Bardogui = () => {
         <Route path="/Register/user" element={<RegisterUser />} />
         <Route path="/Register/table" element={<RegisterTable />} />
         <Route path="/Register/item" element={<RegisterItem />} />
-        <Route path="/Register/admin" element={<RegisterAdm/>} />
+        <Route path="/Register/admin" element={<RegisterAdm />} />
+        <Route path="/Edit/user/:id" element={<EditUser />} />
         <Route path="/home" element={<Home />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/admin/:id" element={<Admin />} />
       </Routes>
     </>
   );

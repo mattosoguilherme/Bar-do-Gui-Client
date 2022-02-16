@@ -4,13 +4,12 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { ContainerAdm } from "../../../components/container/style";
 import HeaderAdmin from "../../../components/headerAdmin";
-import { FormRegisterAdm } from "../style";
-import { Alert } from "bootstrap";
+import FormRegisterAdm from "../style";
+import { Alert } from "react-bootstrap";
 
 const RegisterItem = () => {
   const [logged, setLogged] = useState(false);
   const [admin, setAdmin] = useState("");
-  console.log(admin);
 
   useEffect(() => {
     const token = localStorage.token;
@@ -31,9 +30,6 @@ const RegisterItem = () => {
       })
       .catch((erro) => console.error(erro));
   }, [logged]);
-
-  
-
 
   return (
     <>
@@ -96,7 +92,11 @@ const RegisterItem = () => {
       {admin === "USER" && (
         <Alert>Seu usuário não tem acesso ao essa parte do sistema</Alert>
       )}
-      {!logged && <Alert>Você não está logado</Alert>}
+      {!logged && (
+        <Alert>
+          <Alert.Heading>Você não está logado, faça login!</Alert.Heading>
+        </Alert>
+      )}
     </>
   );
 };

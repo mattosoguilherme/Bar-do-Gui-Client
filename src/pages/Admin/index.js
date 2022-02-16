@@ -23,7 +23,6 @@ const Admin = () => {
       .get("/auth", config)
       .then((res) => {
         setAdmin(res.data.role);
-        console.log(res.data);
         setLogged(true);
       })
       .catch((erro) => console.error(erro));
@@ -43,7 +42,7 @@ const Admin = () => {
       {!logged && (
         <>
           <Alert variant="danger">
-            <Alert.Heading>Você não está logado faça login</Alert.Heading>
+            <Alert.Heading>Você não está logado, faça login!</Alert.Heading>
           </Alert>
         </>
       )}
