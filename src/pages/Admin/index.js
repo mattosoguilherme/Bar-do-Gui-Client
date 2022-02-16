@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
+import { CardUser } from "../../components/card/user";
 import HeaderAdmin from "../../components/headerAdmin";
 
 const Admin = () => {
@@ -30,7 +31,11 @@ const Admin = () => {
   return (
     <>
       <HeaderAdmin />
-      {admin === "ADMIN" && <div>ta funcinando</div>}
+      {admin === "ADMIN" && <>
+
+        <CardUser/>
+
+      </>  }
       {admin === "USER" && (
         <h2>Seu usuário não tem acesso ao essa parte do sistema</h2>
       )}

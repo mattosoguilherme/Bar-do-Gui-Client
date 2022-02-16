@@ -8,8 +8,6 @@ import { DivPass } from "../../Login/styles";
 export const RegisterAdm = () => {
   const [visible, setVisible] = useState(true);
 
-  const [loding, setLoding] = useState(false);
-
   const visibilityPass = () => {
     const pass = document.getElementById("password");
     const eye = document.getElementById("eye");
@@ -33,6 +31,7 @@ export const RegisterAdm = () => {
     const email = event.target.email.value;
     const password = event.target.password.value;
     const passwordConfirmation = event.target.passwordConfirmation.value;
+    const password_sistem = event.target.sistemPass.value;
 
     if (password !== passwordConfirmation) {
       alert("senhas não conferem");
@@ -45,7 +44,8 @@ export const RegisterAdm = () => {
         email,
         password,
         passwordConfirmation,
-        role: "USER",
+        password_sistem,
+        role: "ADMIN",
       };
       console.log(user);
 
@@ -55,12 +55,14 @@ export const RegisterAdm = () => {
           alert("Cadastrado com sucesso");
           console.log(res);
         })
-        .catch((e) => alert(e.message));
+        .catch((e) => {console.log(e)});
     }
   };
 
   return (
-    <>
+      <>
+      
+
       <ContainerAdm>
         <FormRegisterAdm method="POST" onSubmit={HandleSubmit}>
           <h1>cadastro </h1>
@@ -106,6 +108,14 @@ export const RegisterAdm = () => {
             id="passwordConfirmation"
             type="password"
             placeholder="Digite aqui a senha de confirmação"
+            required
+          />
+
+          <label htmlFor="sistemPass">Senha do Sistema</label>
+          <input
+            id="sistemPass"
+            type="password"
+            placeholder="Digite aqui a senha"
             required
           />
 
