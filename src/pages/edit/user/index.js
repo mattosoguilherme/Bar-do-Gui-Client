@@ -1,5 +1,5 @@
 import HeaderAdmin from "../../../components/headerAdmin"
-import RegisterAdm from "../../register/style"
+import FormRegisterAdm from "../../register/style"
 
 
 const EditUser = () => {
