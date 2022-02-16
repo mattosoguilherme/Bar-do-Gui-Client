@@ -10,29 +10,29 @@ import { DivPass } from "../../Login/styles";
 import { Alert } from "react-bootstrap";
 
 const EditUser = () => {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState("");
+  const [pass, setPass] = useState("");
   const [visible, setVisible] = useState(true);
   const [logged, setLogged] = useState(false);
   const [role, setRole] = useState("USER");
   const { id } = useParams();
 
+  const token = localStorage.token;
+  const config = { headers: { Authorization: `Bearer ${token}` } };
+  if (!token) {
+    setLogged(false);
+  }
+
   useEffect(() => {
-    const token = localStorage.token;
-
-    if (!token) {
-      setLogged(false);
-    }
-
-    const config = { headers: { Authorization: `Bearer ${token}` } };
-
     axios
       .get(`/user/${id}`, config)
       .then((res) => {
         setLogged(true);
         setUser(res.data);
+        console.log(res);
       })
       .catch((e) => console.error(e));
-  }, [logged]);
+  }, []);
 
   const visibilityPass = () => {
     const pass = document.getElementById("newPass");
@@ -54,17 +54,35 @@ const EditUser = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const password = event.target.passwordAtual.value;
-    const password_sistem = event.target.passSistem.value;
     const newPassword = event.target.newPass.value;
     const newPasswordConfirmation = event.target.newPassConfirm.value;
 
-    const newCredential = {
-      password,
-      password_sistem,
-      role,
-      newPassword,
-      newPasswordConfirmation,
-    };
+    if (pass) {
+      const CredentialAdm = {
+        password,
+        role,
+        newPassword,
+        newPasswordConfirmation,
+        password_sistem: pass,
+      };
+
+      axios
+        .patch(`/user/${id}`, CredentialAdm, config)
+        .then((res) => console.log(res))
+        .catch((e) => console.error(e));
+    } else {
+      const newCredential = {
+        password,
+        role,
+        newPassword,
+        newPasswordConfirmation,
+        password_sistem:"@Bardogui2022"
+      };
+      axios
+        .patch(`/user/${id}`, newCredential, config)
+        .then((res) => console.log(res))
+        .catch((e) => console.error(e));
+    }
   };
 
   return (
@@ -116,6 +134,7 @@ const EditUser = () => {
                 <>
                   <label>senha do sistema</label>
                   <input
+                    onChange={(e) => setPass(e.target.value)}
                     id="passSistem"
                     type="password"
                     placeholder="digite a senha"

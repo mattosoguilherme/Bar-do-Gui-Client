@@ -119,7 +119,7 @@ const RegisterUser = () => {
           />
 
           <div className="group-btn">
-            <Link to="/admin">
+            <Link to="/">
               <button type="button" className="btnRegister">
                 Voltar
               </button>
