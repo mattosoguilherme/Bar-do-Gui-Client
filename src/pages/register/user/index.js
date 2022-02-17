@@ -59,7 +59,7 @@ const RegisterUser = () => {
         .then((res) => {
           alert("Cadastrado com sucesso");
           console.log(res);
-          Navigate("/login")
+          Navigate("/")
         })
         .catch((e) => {
           console.error(e);

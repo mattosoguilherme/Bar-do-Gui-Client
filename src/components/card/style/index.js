@@ -171,6 +171,7 @@ export const Container = styled.div`
 
   .group-btn button {
     width: 5rem;
+    margin-bottom: 0.5rem;
     font-size: 1.3rem;
     border-radius: 0.5rem;
     padding: 0.3rem;

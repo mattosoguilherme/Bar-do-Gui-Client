@@ -4,12 +4,13 @@ import HeaderPrincipal from "../../components/headerPrincipal";
 import Container from "../Login/styles";
 import { FormRegister } from "../register/style";
 import { Alert } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
+  const Navigate = useNavigate();
   const [edit, setEdit] = useState(false);
   const [logged, setLogged] = useState(false);
   const [user, setUser] = useState();
-  const [userEdit, setUserEdit] = useState();
   const token = localStorage.token;
 
   if (!token) {
@@ -25,7 +26,7 @@ const Profile = () => {
         setUser(res.data);
         setLogged(true);
       })
-      .catch((erro) => console.error(erro));
+      .catch((erro) => console.error(erro.response));
   }, [logged]);
 
   const handle = (event) => {
@@ -33,19 +34,52 @@ const Profile = () => {
     setEdit(true);
   };
 
+  const handleC = (event) => {
+    event.preventDefault();
+    setEdit(false);
+  };
+
   const HandleDelete = () => {
     axios
       .delete("/user", config)
       .then((r) => {
         console.log(r);
+        alert(`${r.data.name} seu perfil foi deletado!`);
+        Navigate("/");
       })
       .catch((e) => console.error(e));
   };
 
-  const handleC = (event) => {
+  const HandleSubmit = (event) => {
     event.preventDefault();
-    setEdit(false);
+    const name = event.target.name.value;
+    const email = event.target.email.value;
+    const editedUser = {
+      email,
+      name,
+    };
+    if (!email) {
+      const edited = { name };
+      axios
+        .patch("/user", edited, config)
+        .then((r) => {
+          alert("Nome alterado com sucesso")
+          setEdit(false)
+        })
+        .catch((e) => console.error(e.response));
+    } else {
+      axios
+        .patch("/user", editedUser, config)
+        .then((r) => {
+          alert("Você precisará fazer o login novamente")
+          Navigate("/")
+        })
+        .catch((e) => {
+          console.error(e.response);
+        });
+    }
   };
+
   return (
     <>
       <HeaderPrincipal />
@@ -54,8 +88,8 @@ const Profile = () => {
           {!edit && (
             <>
               <FormRegister>
-                <input />
-                <input />
+                <input value={user.name} />
+                <input value={user.email} />
                 <div className="group-btn">
                   <button className="btnRegister">Voltar</button>
                   <button
@@ -99,10 +133,7 @@ const Profile = () => {
                       Você realmente deseja excluir seu perfil?
                     </div>
                     <div className="modal-footer">
-                      <button
-                        type="button"
-                        data-bs-dismiss="modal"
-                      >
+                      <button type="button" data-bs-dismiss="modal">
                         Não
                       </button>
                       <button onClick={HandleDelete} type="button">
@@ -116,14 +147,15 @@ const Profile = () => {
           )}
           {edit && (
             <>
-              <FormRegister>
-                <input />
-                <input />
+              <FormRegister onSubmit={HandleSubmit}>
+                <h1>atualizar cadastro</h1>
+                <input type="text" id="name" placeholder={user.name} />
+                <input type="email" id="email" placeholder={user.email} />
                 <div className="group-btn">
                   <button className="btnRegister" onClick={handleC}>
                     Voltar
                   </button>
-                  <button type="button" className="btnRegister">
+                  <button type="submit" className="btnRegister">
                     Salvar
                   </button>
                 </div>
