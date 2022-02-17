@@ -48,7 +48,13 @@ export const Container = styled.div`
 
   #checkbox{
     align-self: start;
-    margin-top: 0.5rem;
+    padding:0.1rem;
+    font-size:1rem;
+    border-radius:0.3rem;
+    &:hover {
+      background-color: transparent;
+      color:white;
+    }
   }
 `;
 

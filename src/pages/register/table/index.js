@@ -3,8 +3,11 @@ import { FormRegister } from "../style";
 import Container from "../../Login/styles";
 import { Link } from "react-router-dom";
 import GroupMenu from "../../../components/Groups/menu";
+import { useLocation } from "react-router-dom";
 
 const RegisterTable = () => {
+  const {state} = useLocation()
+console.log(state)
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -87,7 +90,7 @@ const RegisterTable = () => {
                 >
                   Voltar
                 </button>
-                <button type="button" className="btn btn-primary">
+                <button type="button" className="btn btn-success ">
                   Enviar
                 </button>
               </div>
