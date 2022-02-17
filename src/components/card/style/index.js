@@ -9,12 +9,13 @@ const CardS = styled.div`
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
-  width: 15rem;
+  width: 16rem;
   padding: 0.8rem;
   background-color: #262626;
   margin-top: 1rem;
   margin-bottom: 1rem;
   color: white;
+  height: 100%;
 
   .btn {
     display: flex;

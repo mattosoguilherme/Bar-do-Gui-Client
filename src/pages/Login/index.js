@@ -49,8 +49,8 @@ const Login = () => {
         }
       })
       .catch((e) => {
-        console.error(e.message);
-        alert(e.message);
+        console.error(e);
+        alert(e.response.data.message);
       });
   };
 

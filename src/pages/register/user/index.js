@@ -60,7 +60,10 @@ const RegisterUser = () => {
           console.log(res);
         
         })
-        .catch((e) => alert(e.message));
+        .catch((e) => {
+          console.error(e);
+          alert(e.response.data.message);
+        });
  
         
     }

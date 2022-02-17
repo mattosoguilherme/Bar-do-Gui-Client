@@ -6,11 +6,13 @@ import { ContainerAdm } from "../../../components/container/style";
 import HeaderAdmin from "../../../components/headerAdmin";
 import FormRegisterAdm from "../style";
 import { Alert } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const RegisterItem = () => {
   const [logged, setLogged] = useState(false);
   const [admin, setAdmin] = useState("");
   const token = localStorage.token;
+  const navigate = useNavigate()
 
   if (!token) {
     setLogged(false);
@@ -44,10 +46,16 @@ const RegisterItem = () => {
       price,
       product
     }
+    console.log(item)
    
     axios
     .post("/menu",item,config)
-    .then((r)=>(console.log(r)))
+    .then((r)=>{
+      alert(r.status)
+      console.log(r)
+      navigate("/menu")
+    
+    })
     .catch((e) => console.error(e));
     
   };

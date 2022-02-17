@@ -1,9 +1,25 @@
 import { Badge } from "react-bootstrap";
+import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { EditableCardIS, Container } from "../../style";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const EditableCard = (props) => {
   const item = props.data;
+  const navigate = useNavigate();
+  const token = localStorage.token;
+  const config = { headers: { Authorization: `Bearer ${token}` } };
+
+  const { id } = useParams();
+  const HandleDelete = () => {
+    axios
+      .delete(`/menu/${id}`, config)
+      .then((r) => console.log(r.status.message))
+      .catch((e) => alert(e.response.data.message));
+
+    navigate("/menu");
+  };
 
   return (
     <>
@@ -20,9 +36,10 @@ const EditableCard = (props) => {
 
           <div className="group-btn">
             <Link to={`/menu/${item.id}`}>
-            <button type="button">excluir</button>
+              <button onClick={HandleDelete} type="button">
+                excluir
+              </button>
             </Link>
-            
 
             <Link to={`/Edit/item/${item.id}`}>
               <button type="button">editar</button>

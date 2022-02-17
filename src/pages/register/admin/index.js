@@ -57,7 +57,8 @@ const RegisterAdm = () => {
           console.log(res);
         })
         .catch((e) => {
-          console.log(e);
+          console.error(e);
+          alert(e.response.data.message);
         });
     }
   };
@@ -122,7 +123,7 @@ const RegisterAdm = () => {
           />
 
           <div className="group-btn">
-            <Link to="/">
+            <Link to="/admin">
               <button type="button" className="btnRegister">
                 Voltar
               </button>

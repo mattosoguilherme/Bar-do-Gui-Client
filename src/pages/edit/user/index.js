@@ -69,19 +69,24 @@ const EditUser = () => {
       axios
         .patch(`/user/${id}`, CredentialAdm, config)
         .then((res) => console.log(res))
-        .catch((e) => console.error(e));
+        .catch((e) => {
+          console.erro(e.response);
+          alert(e.response.data.message);
+        });
     } else {
       const newCredential = {
         password,
         role,
         newPassword,
         newPasswordConfirmation,
-        password_sistem:"@Bardogui2022"
       };
       axios
         .patch(`/user/${id}`, newCredential, config)
         .then((res) => console.log(res))
-        .catch((e) => console.error(e));
+        .catch((e) => {
+          console.erro(e.response.data);
+          alert(e.response.data.message);
+        });
     }
   };
 
