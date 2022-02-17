@@ -46,7 +46,8 @@ const Profile = () => {
           <>
             <FormRegister>
              
-              <input value={user.name} />
+              <input  />
+              <input  />
               <div className="group-btn">
                 <button className="btnRegister">Voltar</button>
                 <button type="button" onClick={handle} className="btnRegister">
@@ -59,8 +60,8 @@ const Profile = () => {
         {edit && (
           <>
             <FormRegister>
-            <input placeholder={userEdit.email}  />
-              <input placeholder={userEdit.name} />
+            <input  />
+              <input  />
               <div className="group-btn">
                 <button className="btnRegister" onClick={handleC}>
                   Voltar

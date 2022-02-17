@@ -1,5 +1,6 @@
 import styled from "styled-components";
- const CardS = styled.div`
+
+const CardS = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -15,9 +16,9 @@ import styled from "styled-components";
   margin-bottom: 1rem;
   color: white;
 
-  .btn{
+  .btn {
     display: flex;
-    justify-content:center;
+    justify-content: center;
     width: 100%;
   }
 
@@ -26,11 +27,11 @@ import styled from "styled-components";
     width: 10rem;
     border-radius: 0.5rem;
   }
-  span{
-    background-color:#7D5CF2;
+  span {
+    background-color: #7d5cf2;
     border-radius: 0.3rem;
-    padding:0.2rem;
-    margin-right:0.3rem ;
+    padding: 0.2rem;
+    margin-right: 0.3rem;
   }
 
   button:hover {
@@ -45,4 +46,39 @@ import styled from "styled-components";
   }
 `;
 
-export default CardS
+export const CardTableS = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  width: 20rem;
+  padding: 0.8rem;
+  background-color: brown;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: white;
+
+  .group-btn {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+
+  .group-btn button {
+    width: 5rem;
+    font-size: 1.3rem;
+    border-radius: 0.5rem;
+    padding: 0.3rem;
+    &:hover {
+      background-color: transparent;
+      color: white;
+    }
+  }
+`;
+
+export default CardS;

@@ -10,6 +10,7 @@ const Item = (props) => {
     <CardItem>
       <Container>
         <input
+          id="checkbox"
           type="checkbox"
           onChange={props.onChange}
         ></input>

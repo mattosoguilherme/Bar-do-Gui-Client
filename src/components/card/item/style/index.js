@@ -45,6 +45,11 @@ export const Container = styled.div`
       width: 100%;
       margin-top:0.5rem;
   }
+
+  #checkbox{
+    align-self: start;
+    margin-top: 0.5rem;
+  }
 `;
 
 export default CardItem;
