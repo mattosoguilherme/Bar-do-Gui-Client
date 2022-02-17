@@ -75,6 +75,21 @@ export const FormRegister = styled.form`
   .orders button {
     margin-bottom: 0.5rem;
   }
+
+  .btn-del {
+    align-self: center;
+    width: 80%;
+    height: 3rem;
+    margin-top: 1rem;
+    border-radius: 1rem;
+    background-color: #A6122D;
+    color: white;
+    font-size: 1.5rem;
+    &:hover {
+      background-color: transparent;
+      color:#A6122D
+    }
+  }
 `;
 
 const FormRegisterAdm = styled.form`
@@ -141,8 +156,6 @@ const FormRegisterAdm = styled.form`
   select {
     height: 3rem;
   }
-
-
 `;
 
 export default FormRegisterAdm;

@@ -5,10 +5,11 @@ import Header from "../../../components/header";
 import axios from "axios";
 import ContainerS from "../../../components/container/style";
 import { FormRegister } from "../style";
+import { useNavigate } from "react-router-dom";
 
 const RegisterUser = () => {
   const [visible, setVisible] = useState(true);
-
+  const Navigate = useNavigate()
   const [loding, setLoding] = useState(false)
   
  
@@ -58,7 +59,7 @@ const RegisterUser = () => {
         .then((res) => {
           alert("Cadastrado com sucesso");
           console.log(res);
-        
+          Navigate("/login")
         })
         .catch((e) => {
           console.error(e);

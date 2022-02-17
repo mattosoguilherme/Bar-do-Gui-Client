@@ -14,6 +14,40 @@ const Container = styled.main`
     height: 1000px;
     align-items: start;
   }
+
+  .modal-body{
+    font-size:2rem;
+    color:white;
+  }
+
+  .modal-footer{
+    justify-content: center;
+  }
+
+  .modal-footer button{
+    width:8rem;
+    height: 3rem;
+    border-radius: 0.3rem;
+    font-size:2rem;
+    background-color: #D9C5C5;
+    &:hover{
+      background-color: transparent;
+      color:white;
+    }
+  }
+
+  .modal-header{
+      background-color:#73161E;
+      border-bottom: none;
+  }
+  .modal-body{
+    background-color:#73161E;
+  }
+  .modal-footer{
+    border-top:none;
+    background-color:#73161E;
+  }
+
 `;
 
 export const DivPass = styled.div`

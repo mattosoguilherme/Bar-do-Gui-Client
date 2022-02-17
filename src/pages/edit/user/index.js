@@ -70,7 +70,6 @@ const EditUser = () => {
         .patch(`/user/${id}`, CredentialAdm, config)
         .then((res) => console.log(res))
         .catch((e) => {
-          console.erro(e.response);
           alert(e.response.data.message);
         });
     } else {
@@ -84,7 +83,6 @@ const EditUser = () => {
         .patch(`/user/${id}`, newCredential, config)
         .then((res) => console.log(res))
         .catch((e) => {
-          console.erro(e.response.data);
           alert(e.response.data.message);
         });
     }
