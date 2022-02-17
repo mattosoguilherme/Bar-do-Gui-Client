@@ -1,13 +1,13 @@
-import { Link } from "react-router-dom";
 import axios from "axios";
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-import { ContainerAdm } from "../../../components/container/style";
-import HeaderAdmin from "../../../components/headerAdmin";
-import FormRegisterAdm from "../style";
 import { Alert } from "react-bootstrap";
+import { ContainerAdm } from "../../../components/container/style";
+import FormRegisterAdm from "../../register/style";
+import HeaderAdmin from "../../../components/headerAdmin";
 
-const RegisterItem = () => {
+const EditItem = () => {
   const [logged, setLogged] = useState(false);
   const [admin, setAdmin] = useState("");
   const token = localStorage.token;
@@ -29,33 +29,11 @@ const RegisterItem = () => {
       .catch((erro) => console.error(erro));
   }, [logged]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const title = e.target.title.value;
-    const imgUrl = e.target.imgUrl.value;
-    const description = e.target.description.value;
-    const price = e.target.price.value;
-    const product = e.target.product.value;
+  const handleSubmit = () => {};
 
-    const item = { 
-      title,
-      imgUrl,
-      description,
-      price,
-      product
-    }
-   
-    axios
-    .post("/menu",item,config)
-    .then((r)=>(console.log(r)))
-    .catch((e) => console.error(e));
-    
-  };
- 
   return (
     <>
-      <HeaderAdmin />
-
+    <HeaderAdmin />
       {admin === "ADMIN" && (
         <>
           <ContainerAdm>
@@ -102,11 +80,15 @@ const RegisterItem = () => {
               </select>
 
               <div className="group-btn">
-                <Link to="/admin">
-                  <button type="button" className="btnRegister">Voltar</button>
+                <Link to="/menu">
+                  <button type="button" className="btnRegister">
+                    Voltar
+                  </button>
                 </Link>
 
-                <button type="submit" className="btnRegister">Cadastrar</button>
+                <button type="submit" className="btnRegister">
+                  Salvar
+                </button>
               </div>
             </FormRegisterAdm>
           </ContainerAdm>
@@ -124,4 +106,4 @@ const RegisterItem = () => {
   );
 };
 
-export default RegisterItem;
+export default EditItem;

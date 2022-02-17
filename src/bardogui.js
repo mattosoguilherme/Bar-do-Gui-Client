@@ -8,8 +8,9 @@ import RegisterTable from "./pages/register/table";
 import Profile from "./pages/profile";
 import Admin from "./pages/Admin";
 import RegisterItem from "./pages/register/item";
-import RegisterAdm  from "./pages/register/admin";
+import RegisterAdm from "./pages/register/admin";
 import EditUser from "./pages/edit/user";
+import EditItem from "./pages/edit/item";
 
 const Bardogui = () => {
   return (
@@ -21,11 +22,13 @@ const Bardogui = () => {
         <Route path="/Register/item" element={<RegisterItem />} />
         <Route path="/Register/admin" element={<RegisterAdm />} />
         <Route path="/Edit/user/:id" element={<EditUser />} />
+        <Route path="/Edit/item/:id" element={<EditItem />} />
         <Route path="/home" element={<Home />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/:id" element={<Admin />} />
+        <Route path="/menu/:id"  element={<Menu/>}/>
       </Routes>
     </>
   );

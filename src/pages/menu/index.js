@@ -1,11 +1,11 @@
-import GroupMenu from "../../components/Groups/menu";
+import GroupEditableMenu from "../../components/Groups/editMenu";
 import HeaderAdmin from "../../components/headerAdmin";
  
 
 const Menu = () => {
     return<>
     <HeaderAdmin/>
-    <GroupMenu/>
+    <GroupEditableMenu/>
     </>
 }
 export default Menu;

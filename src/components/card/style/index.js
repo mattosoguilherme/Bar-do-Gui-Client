@@ -57,25 +57,23 @@ export const CardTableS = styled.div`
   border-radius: 0.25rem;
   width: 20rem;
   padding: 0.8rem;
-  background-color: #73161E;
+  background-color: #73161e;
   margin-top: 1rem;
   margin-bottom: 1rem;
   color: white;
 
-  span{
-    padding:0.2rem;
-    background-color:#BF382C !important ;
+  span {
+    padding: 0.2rem;
+    background-color: #bf382c !important ;
   }
 
-  table{
+  table {
     color: white;
-    
   }
 
-  .card-body{
-    background-color: #D9C5C5;
-    color:black
-
+  .card-body {
+    background-color: #d9c5c5;
+    color: black;
   }
 
   .group-btn {
@@ -107,9 +105,28 @@ export const CardItem = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
   width: 15rem;
-  background-color: #a6122d; 
-  margin-top:1rem;
+  background-color: #a6122d;
+  margin-top: 1rem;
   margin-bottom: 1rem;
+`;
+
+export const EditableCardIS = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  width: 15rem;
+  background-color: #262626;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
+  h2 {
+    color: white;
+  }
 `;
 
 export const Container = styled.div`
@@ -134,23 +151,33 @@ export const Container = styled.div`
     width: 100%;
   }
 
-  span{
-    background-color: #bf382c !important;
+  span {
+    background-color: #7d5cf2 !important;
     font-size: 1.2rem !important;
     margin-bottom: 0.5rem;
   }
-  .badgePrice{
-      width: 100%;
-      margin-top:0.5rem;
+  .badgePrice {
+    width: 100%;
+    margin-top: 0.5rem;
   }
 
-  #checkbox{
-    align-self: start ;
-    margin-top:0.4rem
-    
+  .group-btn {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
   }
 
+  .group-btn button {
+    width: 5rem;
+    font-size: 1.3rem;
+    border-radius: 0.5rem;
+    padding: 0.3rem;
+    &:hover {
+      background-color: transparent;
+      color: white;
+    }
+  }
 `;
-
 
 export default CardS;
