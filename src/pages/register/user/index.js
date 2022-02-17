@@ -78,7 +78,6 @@ const RegisterUser = () => {
             id="name"
             type="text"
             placeholder="Digite aqui seu nome"
-            name="name"
             required
           />
 

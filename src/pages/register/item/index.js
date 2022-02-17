@@ -10,27 +10,48 @@ import { Alert } from "react-bootstrap";
 const RegisterItem = () => {
   const [logged, setLogged] = useState(false);
   const [admin, setAdmin] = useState("");
+  const token = localStorage.token;
+
+  if (!token) {
+    setLogged(false);
+  }
+  const config = {
+    headers: { Authorization: `Bearer ${token}` },
+  };
 
   useEffect(() => {
-    const token = localStorage.token;
-
-    if (!token) {
-      setLogged(false);
-    }
-    const config = {
-      headers: { Authorization: `Bearer ${token}` },
-    };
-
     axios
       .get("/auth", config)
       .then((res) => {
         setAdmin(res.data.role);
-        console.log(res.data);
         setLogged(true);
       })
       .catch((erro) => console.error(erro));
   }, [logged]);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const title = e.target.title.value;
+    const imgUrl = e.target.imgUrl.value;
+    const description = e.target.description.value;
+    const price = e.target.price.value;
+    const product = e.target.product.value;
+
+    const item = { 
+      title,
+      imgUrl,
+      description,
+      price,
+      product
+    }
+   
+    axios
+    .post("/menu",item,config)
+    .then((r)=>(console.log(r)))
+    .catch((e) => console.error(e));
+    
+  };
+ 
   return (
     <>
       <HeaderAdmin />
@@ -38,12 +59,13 @@ const RegisterItem = () => {
       {admin === "ADMIN" && (
         <>
           <ContainerAdm>
-            <FormRegisterAdm>
+            <FormRegisterAdm method="POST" onSubmit={handleSubmit}>
               <h1>Cadastro de produto</h1>
               <label htmlFor="title">Nome</label>
               <input
                 required
                 id="title"
+                type="text"
                 placeholder="Digite aqui o nome do produto"
               />
 
@@ -51,12 +73,14 @@ const RegisterItem = () => {
               <input
                 required
                 id="imgUrl"
+                type="url"
                 placeholder="Digite aqui a url da imagem"
               />
 
-              <label htmlFor="descrption">Descricação</label>
+              <label htmlFor="description">Descricação</label>
               <textarea
                 required
+                type="text"
                 id="description"
                 placeholder="Digite aqui o nome do produto"
               />
@@ -70,7 +94,7 @@ const RegisterItem = () => {
               />
 
               <label htmlFor="product">Tipo de Produto</label>
-              <select id="product" required>
+              <select type="text" id="product" required>
                 <option></option>
                 <option>Bebida</option>
                 <option>Bebida Alcoólica</option>
@@ -80,10 +104,10 @@ const RegisterItem = () => {
 
               <div className="group-btn">
                 <Link to="/admin">
-                  <button className="btnRegister">Voltar</button>
+                  <button type="button" className="btnRegister">Voltar</button>
                 </Link>
 
-                <button className="btnRegister">Cadastrar</button>
+                <button type="submit" className="btnRegister">Cadastrar</button>
               </div>
             </FormRegisterAdm>
           </ContainerAdm>

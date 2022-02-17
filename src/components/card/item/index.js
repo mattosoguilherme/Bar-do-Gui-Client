@@ -1,5 +1,5 @@
 import { Badge } from "react-bootstrap";
-import CardItem, { Container } from "./style";
+import { CardItem, Container } from "../style";
 
 const Item = (props) => {
   const item = props.data;

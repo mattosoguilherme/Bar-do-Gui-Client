@@ -1,6 +1,5 @@
-import { Table } from "react-bootstrap";
-import { Container } from "../item/style";
-import { CardTableS } from "../style";
+import { Link } from "react-router-dom";
+import { Container, CardTableS } from "../style";
 
 const CardTable = (props) => {
   const table = props.data;
@@ -9,11 +8,13 @@ const CardTable = (props) => {
     <>
       <CardTableS>
         <Container>
-          <h1>Mesa table.numberTable </h1>
+          <h1>Mesa {table.numberTable} </h1>{" "}
+          {table.user.map((u) => (
+            <span>garçon {u.name}</span>
+          ))}
           <div className="card-body">
-            <p className="card-text">Detalhes: table.observation</p>
+            <p className="card-text">Detalhes: {table.observation}</p>
           </div>
-
           <div className=" table-responsive ">
             <table className=" overflow-auto table table-hover">
               <thead>
@@ -25,19 +26,23 @@ const CardTable = (props) => {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>caipirinha</td>
-                  <td>400 ml</td>
-                  <td>R$ 18,00</td>
-                </tr>
+                {table.product.map((p) => (
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>{p.Menu.title}</td>
+                    <td>{p.Menu.description}</td>
+                    <td>R$ {p.Menu.price}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
-
           <div className="group-btn">
             <button type="button">Editar</button>
-            <button type="button">Finalizar</button>
+
+            <Link to={`/homw/${table.id}`}>
+              <button type="button">Finalizar</button>
+            </Link>
           </div>
         </Container>
       </CardTableS>

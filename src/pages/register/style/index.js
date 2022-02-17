@@ -66,7 +66,7 @@ export const FormRegister = styled.form`
   }
 
   .orders {
-    background-color: blue;
+    background-color: white;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -142,22 +142,7 @@ const FormRegisterAdm = styled.form`
     height: 3rem;
   }
 
-  #btnOrder {
-    border-radius: 0.3rem;
-    height: 3rem;
-    font-size: 1.5rem;
-  }
 
-  .orders {
-    background-color: blue;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-  }
-  .orders button {
-    margin-bottom: 0.5rem;
-  }
 `;
 
 export default FormRegisterAdm;
