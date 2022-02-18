@@ -68,6 +68,7 @@ const EditItem = () => {
       price: Number(price),
       product,
     };
+    const token = localStorage.token;
     const configuration = {
       headers: { Authorization: `Bearer ${token}` },
     };
