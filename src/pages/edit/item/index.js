@@ -14,10 +14,10 @@ const EditItem = () => {
   const [itemDB, setItem] = useState();
   const [logged, setLogged] = useState(false);
   const [admin, setAdmin] = useState("");
-
-  const { id } = useParams();
+  const [ id ] = useParams();
 
   useEffect(() => {
+    
     const token = localStorage.token;
     if (!token) {
       setLogged(false);
@@ -53,7 +53,7 @@ const EditItem = () => {
       .catch((erro) => console.error(erro.response));
   }, [logged]);
 
-  const handleSubmit = (e) => {
+  const HandleSubmit = (e) => {
     e.preventDefault();
     const title = e.target.title.value;
     const imgUrl = e.target.imgUrl.value;
@@ -68,7 +68,9 @@ const EditItem = () => {
       price: Number(price),
       product,
     };
+
     const token = localStorage.token;
+
     const configuration = {
       headers: { Authorization: `Bearer ${token}` },
     };
@@ -90,7 +92,7 @@ const EditItem = () => {
       {admin === "ADMIN" && (
         <>
           <ContainerAdm>
-            <FormRegisterAdm onSubmit={handleSubmit}>
+            <FormRegisterAdm onSubmit={HandleSubmit}>
               <h1>Editando produto</h1>
               <label htmlFor="title">Nome</label>
               <input
@@ -177,7 +179,7 @@ const EditItem = () => {
                 <div className="modal-dialog">
                   <div className="modal-content">
                     <div className="modal-header">
-                      <h5 className="modal-title" id="exampleModalLabel"></h5>
+                    
                       <button
                         type="button"
                         className="btn-close"

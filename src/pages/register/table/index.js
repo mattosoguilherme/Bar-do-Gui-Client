@@ -12,16 +12,16 @@ const RegisterTable = () => {
   const navigate = useNavigate();
 
   const [logged, setLogged] = useState(false);
-  const token = localStorage.token;
-
-  if (!token) {
-    setLogged(false);
-  }
-  const config = {
-    headers: { Authorization: `Bearer ${token}` },
-  };
 
   useEffect(() => {
+    const token = localStorage.token;
+
+    if (!token) {
+      setLogged(false);
+    }
+    const config = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
     axios
       .get("/auth", config)
       .then(() => {
@@ -37,6 +37,14 @@ const RegisterTable = () => {
 
     const table = {
       observation,
+    };
+    const token = localStorage.token;
+
+    if (!token) {
+      setLogged(false);
+    }
+    const config = {
+      headers: { Authorization: `Bearer ${token}` },
     };
 
     axios
