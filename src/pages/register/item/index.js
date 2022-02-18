@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
 
 import { ContainerAdm } from "../../../components/container/style";
 import HeaderAdmin from "../../../components/headerAdmin";
@@ -11,19 +11,19 @@ import { useNavigate } from "react-router-dom";
 const RegisterItem = () => {
   const [logged, setLogged] = useState(false);
   const [admin, setAdmin] = useState("");
-  const token = localStorage.token;
-  const navigate = useNavigate()
 
+  const navigate = useNavigate();
+  const token = localStorage.token;
   if (!token) {
     setLogged(false);
   }
-  const config = {
-    headers: { Authorization: `Bearer ${token}` },
-  };
 
   useEffect(() => {
+    const configuration = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
     axios
-      .get("/auth", config)
+      .get("/auth", configuration)
       .then((res) => {
         setAdmin(res.data.role);
         setLogged(true);
@@ -39,27 +39,27 @@ const RegisterItem = () => {
     const price = e.target.price.value;
     const product = e.target.product.value;
 
-    const item = { 
+    const item = {
       title,
       imgUrl,
       description,
       price,
-      product
-    }
-    console.log(item)
-   
+      product,
+    };
+    const configuration = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
+
     axios
-    .post("/menu",item,config)
-    .then((r)=>{
-      alert(r.status)
-      console.log(r)
-      navigate("/menu")
-    
-    })
-    .catch((e) => console.error(e));
-    
+      .post("/menu", item, configuration)
+      .then((r) => {
+        alert(r.status);
+        console.log(r);
+        navigate("/menu");
+      })
+      .catch((e) => console.error(e));
   };
- 
+
   return (
     <>
       <HeaderAdmin />
@@ -111,10 +111,14 @@ const RegisterItem = () => {
 
               <div className="group-btn">
                 <Link to="/admin">
-                  <button type="button" className="btnRegister">Voltar</button>
+                  <button type="button" className="btnRegister">
+                    Voltar
+                  </button>
                 </Link>
 
-                <button type="submit" className="btnRegister">Cadastrar</button>
+                <button type="submit" className="btnRegister">
+                  Cadastrar
+                </button>
               </div>
             </FormRegisterAdm>
           </ContainerAdm>
