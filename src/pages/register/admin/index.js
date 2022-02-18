@@ -1,12 +1,14 @@
 import { ContainerAdm } from "../../../components/container/style";
 import { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { DivPass } from "../../Login/styles";
 import FormRegisterAdm from "../style";
 import HeaderAdmin from "../../../components/headerAdmin";
 
 const RegisterAdm = () => {
+  const navigate = useNavigate()
+
   const [visible, setVisible] = useState(true);
 
   const visibilityPass = () => {
@@ -52,9 +54,10 @@ const RegisterAdm = () => {
 
       axios
         .post("/user", user)
-        .then((res) => {
+        .then(() => {
           alert("Cadastrado com sucesso");
-          console.log(res);
+          navigate("/admin")
+          
         })
         .catch((e) => {
           console.error(e);
