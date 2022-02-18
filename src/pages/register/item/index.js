@@ -13,12 +13,12 @@ const RegisterItem = () => {
   const [admin, setAdmin] = useState("");
 
   const navigate = useNavigate();
-  const token = localStorage.token;
-  if (!token) {
-    setLogged(false);
-  }
 
   useEffect(() => {
+    const token = localStorage.token;
+    if (!token) {
+      setLogged(false);
+    }
     const configuration = {
       headers: { Authorization: `Bearer ${token}` },
     };
@@ -46,6 +46,10 @@ const RegisterItem = () => {
       price,
       product,
     };
+    const token = localStorage.token;
+    if (!token) {
+      setLogged(false);
+    }
     const configuration = {
       headers: { Authorization: `Bearer ${token}` },
     };
