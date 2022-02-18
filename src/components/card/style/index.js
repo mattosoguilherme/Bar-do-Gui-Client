@@ -180,6 +180,28 @@ export const Container = styled.div`
       color: white;
     }
   }
+
+  .header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .header div{
+    align-self: center;
+    margin-bottom: 0.7rem;
+  }
+
+  .header div button{
+    border-radius:0.5rem;
+    padding:0.2rem;
+    &:hover{
+      background-color: transparent;
+      color: white;
+    }
+  }
+
+ 
 `;
 
 export default CardS;

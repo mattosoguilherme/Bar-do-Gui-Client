@@ -68,26 +68,6 @@ const RegisterTable = () => {
               <label>Observação</label>
               <textarea id="observation" placeholder="Digite aqui..." />
 
-              <div className="orders">
-                <button
-                  id="btnOrder"
-                  data-bs-toggle="modal"
-                  data-bs-target="#staticBackdrop"
-                >
-                  Adicionar Pedidos
-                </button>
-                <div>
-                  <h3>{listOrders.length}</h3>
-                  <div>
-                    <ContainerS>
-                      {listOrders.map((x) => {
-                        <p>x.price</p>;
-                      })}
-                    </ContainerS>
-                  </div>
-                </div>
-              </div>
-
               <div className="group-btn">
                 <Link to="/home">
                   <button className="btnRegister">Voltar</button>
@@ -98,55 +78,6 @@ const RegisterTable = () => {
                 </button>
               </div>
             </FormRegister>
-
-            <div
-              className="modal fade"
-              id="staticBackdrop"
-              data-bs-backdrop="static"
-              data-bs-keyboard="false"
-              tabindex="-1"
-              aria-labelledby="staticBackdropLabel"
-              aria-hidden="true"
-            >
-              <div className="modal-dialog  modal-dialog-scrollable ">
-                <div className="modal-content">
-                  <div className="modal-header">
-                    <h5 className="modal-title" id="staticBackdropLabel">
-                      Menu
-                    </h5>
-                    <button
-                      type="button"
-                      className="btn-close"
-                      data-bs-dismiss="modal"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                  <div className="modal-body">
-                    <ContainerS>
-                      {item.map((item) => (
-                        <Item
-                          onChange={(e) => handle(e.target.checked, item)}
-                          data={item}
-                          key={item.id}
-                        />
-                      ))}
-                    </ContainerS>
-                  </div>
-                  <div className="modal-footer">
-                    <button
-                      type="button"
-                      className="btn btn-secondary"
-                      data-bs-dismiss="modal"
-                    >
-                      Voltar
-                    </button>
-                    <button type="button" className="btn btn-success ">
-                      Enviar
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
           </Container>
         </>
       )}

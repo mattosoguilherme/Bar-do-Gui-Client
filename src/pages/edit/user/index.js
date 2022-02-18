@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import HeaderAdmin from "../../../components/headerAdmin";
 import FormRegisterAdm from "../../register/style";
 import axios from "axios";
@@ -10,6 +10,7 @@ import { DivPass } from "../../Login/styles";
 import { Alert } from "react-bootstrap";
 
 const EditUser = () => {
+  const navigate = useNavigate();
   const [user, setUser] = useState("");
   const [pass, setPass] = useState("");
   const [visible, setVisible] = useState(true);
@@ -68,7 +69,10 @@ const EditUser = () => {
 
       axios
         .patch(`/user/${id}`, CredentialAdm, config)
-        .then((res) => console.log(res))
+        .then(() => {
+          alert("credenciais atualizadas");
+          navigate("/admin");
+        })
         .catch((e) => {
           alert(e.response.data.message);
         });
@@ -81,7 +85,10 @@ const EditUser = () => {
       };
       axios
         .patch(`/user/${id}`, newCredential, config)
-        .then((res) => console.log(res))
+        .then(() => {
+          alert("credenciais atualizadas");
+          navigate("/admin");
+        })
         .catch((e) => {
           alert(e.response.data.message);
         });

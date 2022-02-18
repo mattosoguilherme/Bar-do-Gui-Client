@@ -8,7 +8,10 @@ const CardTable = (props) => {
     <>
       <CardTableS>
         <Container>
-          <h1>Mesa {table.numberTable} </h1>{" "}
+          <div className="header">
+            <h1>Mesa {table.numberTable} </h1>
+            <div><button>Adicionar pedido</button></div>
+          </div>
           {table.user.map((u) => (
             <span>garçon {u.name}</span>
           ))}

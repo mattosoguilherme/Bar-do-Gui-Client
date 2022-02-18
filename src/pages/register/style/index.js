@@ -48,6 +48,22 @@ export const FormRegister = styled.form`
     margin-top: 1rem;
   }
 
+  .btn-del {
+    align-self: center;
+    width: 80%;
+    height: 3rem;
+    margin-top: 1rem;
+    border-radius: 1rem;
+    background-color: #a6122d;
+    color: white;
+    font-size: 1.5rem;
+    &:hover {
+      background-color: transparent;
+      color: #a6122d;
+    }
+  }
+
+
   .btnRegister {
     width: 7rem;
     font-size: 1.5rem;
@@ -56,38 +72,6 @@ export const FormRegister = styled.form`
     &:hover {
       background-color: transparent;
       color: #a6122d;
-    }
-  }
-
-  #btnOrder {
-    border-radius: 0.3rem;
-    height: 3rem;
-    font-size: 1.5rem;
-  }
-
-  .orders {
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-  }
-  .orders button {
-    margin-bottom: 0.5rem;
-  }
-
-  .btn-del {
-    align-self: center;
-    width: 80%;
-    height: 3rem;
-    margin-top: 1rem;
-    border-radius: 1rem;
-    background-color: #A6122D;
-    color: white;
-    font-size: 1.5rem;
-    &:hover {
-      background-color: transparent;
-      color:#A6122D
     }
   }
 `;
@@ -151,6 +135,54 @@ const FormRegisterAdm = styled.form`
       background-color: transparent;
       color: white;
     }
+  }
+
+  .btn-del {
+    align-self: center;
+    width: 80%;
+    height: 3rem;
+    margin-top: 1rem;
+    border-radius: 1rem;
+    background-color: #a6122d;
+    color: white;
+    font-size: 1.5rem;
+    &:hover {
+      background-color: transparent;
+      color: #a6122d;
+    }
+  }
+
+  .modal-body {
+    font-size: 2rem;
+    color: white;
+  }
+
+  .modal-footer {
+    justify-content: center;
+  }
+
+  .modal-footer button {
+    width: 8rem;
+    height: 3rem;
+    border-radius: 0.3rem;
+    font-size: 2rem;
+    background-color: #d9c5c5;
+    &:hover {
+      background-color: transparent;
+      color: white;
+    }
+  }
+
+  .modal-header {
+    background-color: #262626;
+    border-bottom: none;
+  }
+  .modal-body {
+    background-color: #262626;
+  }
+  .modal-footer {
+    border-top: none;
+    background-color: #262626;
   }
 
   select {

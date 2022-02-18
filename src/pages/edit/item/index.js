@@ -10,7 +10,7 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const EditItem = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [itemDB, setItem] = useState();
   const [logged, setLogged] = useState(false);
   const [admin, setAdmin] = useState("");
@@ -58,19 +58,21 @@ const EditItem = () => {
       title,
       imgUrl,
       description,
-      price:Number(price),
+      price: Number(price),
       product,
-    };  
-    console.log(item)
+    };
+    console.log(item);
 
     axios
       .patch(`/menu/${id}`, item, config)
       .then((r) => {
-        alert("item atualizado")
-        navigate("/menu")
+        alert("item atualizado");
+        navigate("/menu");
       })
       .catch((e) => console.error(e));
   };
+
+  const HandleDelete = () => {};
 
   return (
     <>
@@ -144,6 +146,48 @@ const EditItem = () => {
                 <button type="submit" className="btnRegister">
                   Salvar
                 </button>
+              </div>
+
+              <button
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+                className="btn-del"
+              >
+                apagar item
+              </button>
+
+              <div
+                className="modal fade"
+                id="exampleModal"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div className="modal-dialog">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <h5 className="modal-title" id="exampleModalLabel"></h5>
+                      <button
+                        type="button"
+                        className="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div className="modal-body">
+                      Você realmente deseja apagar este item?
+                    </div>
+                    <div className="modal-footer">
+                      <button type="button" data-bs-dismiss="modal">
+                        Não
+                      </button>
+                      <button onClick={HandleDelete} type="button">
+                        Sim
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </FormRegisterAdm>
           </ContainerAdm>
