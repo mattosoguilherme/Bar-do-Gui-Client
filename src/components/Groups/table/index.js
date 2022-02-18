@@ -8,9 +8,6 @@ import axios from "axios";
 const GroupTable = () => {
   const [logged, setLogged] = useState(false);
   const [table, setTable] = useState([]);
-  
-  
-
 
   useEffect(() => {
     const token = localStorage.token;
