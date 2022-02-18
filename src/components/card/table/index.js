@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import GroupMenu from "../../Groups/menu";
+import GroupTable from "../../Groups/table";
 import { Container, CardTableS } from "../style";
 
 const CardTable = (props) => {
@@ -80,7 +82,11 @@ const CardTable = (props) => {
                 aria-label="Close"
               ></button>
             </div>
-            <div className="modal-body">...</div>
+            <div className="modal-body">
+
+              <GroupMenu/>
+
+            </div>
             <div className="modal-footer">
               <button
                 type="button"

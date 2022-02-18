@@ -9,7 +9,7 @@ import { Alert } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 const RegisterTable = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [logged, setLogged] = useState(false);
   const token = localStorage.token;
@@ -25,23 +25,10 @@ const RegisterTable = () => {
     axios
       .get("/auth", config)
       .then(() => {
-    
         setLogged(true);
       })
       .catch((erro) => console.error(erro));
   }, [logged]);
-
-  let listOrders = [];
-
-  const handle = (e, i) => {
-    if (e) {
-      listOrders.push(i);
-    } else {
-      const noOrderIndex = listOrders.indexOf(i);
-      listOrders.splice(noOrderIndex, 1);
-    }
-    
-  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -55,8 +42,8 @@ const RegisterTable = () => {
     axios
       .post("/table", table, config)
       .then((r) => {
-        navigate("/home")
-        alert(`Mesa ${r.data.numberTable} criado com sucesso`)
+        navigate("/home");
+        alert(`Mesa ${r.data.numberTable} criado com sucesso`);
       })
       .catch((e) => console.error(e));
   };

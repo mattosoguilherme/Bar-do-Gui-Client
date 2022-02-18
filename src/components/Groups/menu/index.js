@@ -4,11 +4,11 @@ import { useEffect,useState } from "react";
 import ContainerS from "../style";
 import Item from "../../card/item";
 
+export const listOrders = [];
 
 const GroupMenu = () => {
   const [item, setItem] = useState([]);
   const [logged, setLogged] = useState(false);
-  const [lista, setLista] = useState([]);
   
   useEffect(() => {
     const token = localStorage.token;
@@ -28,8 +28,6 @@ const GroupMenu = () => {
       })
       .catch((erro) => console.error(erro));
   }, [logged]);
-
-  let listOrders = [];
 
   const handle = (e, i) => {
     if (e) {
