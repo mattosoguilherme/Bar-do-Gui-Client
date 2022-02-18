@@ -47,8 +47,8 @@ const HeaderPrincipal = () => {
 
               <li className="nav-item dropdown ">
                 <a
+                  href="/"
                   className="nav-link dropdown-toggle"
-                  // href="#"
                   id="navbarDropdownMenuLink"
                   role="button"
                   data-bs-toggle="dropdown"

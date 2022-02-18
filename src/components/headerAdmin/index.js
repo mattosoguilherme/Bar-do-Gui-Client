@@ -68,7 +68,7 @@ const HeaderAdmin = () => {
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
-                  href="#"
+                  href="/"
                 >
                   mais
                 </a>
