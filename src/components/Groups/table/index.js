@@ -8,15 +8,19 @@ import axios from "axios";
 const GroupTable = () => {
   const [logged, setLogged] = useState(false);
   const [table, setTable] = useState([]);
-  const token = localStorage.token;
-  const config = { headers: { Authorization: `Bearer ${token}` } };
-  if (!token) {
-    setLogged(false);
-  }
+  
+  
+
 
   useEffect(() => {
+    const token = localStorage.token;
+    if (!token) {
+      setLogged(false);
+    }
+    const configuration = { headers: { Authorization: `Bearer ${token}` } };
+
     axios
-      .get("/table", config)
+      .get("/table", configuration)
       .then((r) => {
         setTable(r.data);
         console.log(r);
