@@ -51,7 +51,7 @@ const CardTable = (props) => {
           <div className="group-btn">
             <button type="button">Editar</button>
 
-            <Link to={`/homw/${table.id}`}>
+            <Link to={`/home/${table.id}`}>
               <button type="button">Finalizar</button>
             </Link>
           </div>

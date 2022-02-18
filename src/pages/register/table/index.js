@@ -1,15 +1,16 @@
 import HeaderPrincipal from "../../../components/headerPrincipal";
 import { FormRegister } from "../style";
 import Container from "../../Login/styles";
-import ContainerS from "../../../components/Groups/style";
 
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Item from "../../../components/card/item";
+import { Alert } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const RegisterTable = () => {
-  const [item, setItem] = useState([]);
+  const navigate = useNavigate()
+
   const [logged, setLogged] = useState(false);
   const token = localStorage.token;
 
@@ -22,9 +23,9 @@ const RegisterTable = () => {
 
   useEffect(() => {
     axios
-      .get("/menu", config)
-      .then((res) => {
-        setItem(res.data);
+      .get("/auth", config)
+      .then(() => {
+    
         setLogged(true);
       })
       .catch((erro) => console.error(erro));
@@ -39,7 +40,7 @@ const RegisterTable = () => {
       const noOrderIndex = listOrders.indexOf(i);
       listOrders.splice(noOrderIndex, 1);
     }
-    console.log(listOrders);
+    
   };
 
   const handleSubmit = (event) => {
@@ -53,7 +54,10 @@ const RegisterTable = () => {
 
     axios
       .post("/table", table, config)
-      .then((r) => console.log(r))
+      .then((r) => {
+        navigate("/home")
+        alert(`Mesa ${r.data.numberTable} criado com sucesso`)
+      })
       .catch((e) => console.error(e));
   };
 
@@ -80,6 +84,11 @@ const RegisterTable = () => {
             </FormRegister>
           </Container>
         </>
+      )}
+      {!logged && (
+        <Alert variant="danger">
+          <Alert.Heading>Você não está logado, faça login!</Alert.Heading>
+        </Alert>
       )}
     </>
   );

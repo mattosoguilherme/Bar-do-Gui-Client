@@ -30,14 +30,16 @@ const Admin = () => {
 
   return (
     <>
-      <HeaderAdmin />
       {admin === "ADMIN" && (
         <>
+          <HeaderAdmin />
           <GroupUser />
         </>
       )}
       {admin === "USER" && (
-        <h2>Seu usuário não tem acesso ao essa parte do sistema</h2>
+        <Alert variant="danger">
+          <Alert.Heading>Você não tem autoriração!</Alert.Heading>
+        </Alert>
       )}
       {!logged && (
         <>

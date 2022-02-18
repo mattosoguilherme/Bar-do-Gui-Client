@@ -124,7 +124,7 @@ const RegisterItem = () => {
         <Alert>Seu usuário não tem acesso ao essa parte do sistema</Alert>
       )}
       {!logged && (
-        <Alert>
+        <Alert variant="danger">
           <Alert.Heading>Você não está logado, faça login!</Alert.Heading>
         </Alert>
       )}
