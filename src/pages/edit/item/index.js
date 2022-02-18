@@ -14,10 +14,9 @@ const EditItem = () => {
   const [itemDB, setItem] = useState();
   const [logged, setLogged] = useState(false);
   const [admin, setAdmin] = useState("");
-  const [ id ] = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
-    
     const token = localStorage.token;
     if (!token) {
       setLogged(false);
@@ -84,7 +83,25 @@ const EditItem = () => {
       .catch((e) => console.error(e));
   };
 
-  const HandleDelete = () => {};
+  const HandleDelete = () => {
+    const token = localStorage.token;
+
+    const c = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
+
+    axios
+      .delete(`/menu/${id}`, c)
+      .then(() => {
+        alert("item deletado com sucesso");
+        navigate("/menu");
+      })
+      .catch((e) => {
+        console.error(e);
+      });
+
+      
+  };
 
   return (
     <>
@@ -179,7 +196,6 @@ const EditItem = () => {
                 <div className="modal-dialog">
                   <div className="modal-content">
                     <div className="modal-header">
-                    
                       <button
                         type="button"
                         className="btn-close"

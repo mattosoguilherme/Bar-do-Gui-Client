@@ -20,7 +20,7 @@ const GroupTable = () => {
       .get("/table", configuration)
       .then((r) => {
         setTable(r.data);
-        console.log(r);
+        
       })
       .catch((e) => console.error(e));
   }, [logged]);
