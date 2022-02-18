@@ -9,10 +9,8 @@ import { useNavigate } from "react-router-dom";
 
 const RegisterUser = () => {
   const [visible, setVisible] = useState(true);
-  const Navigate = useNavigate()
-  const [loding, setLoding] = useState(false)
-  
- 
+  const Navigate = useNavigate();
+
   const visibilityPass = () => {
     const pass = document.getElementById("password");
     const eye = document.getElementById("eye");
@@ -37,8 +35,6 @@ const RegisterUser = () => {
     const password = event.target.password.value;
     const passwordConfirmation = event.target.passwordConfirmation.value;
 
-  
-    
     if (password !== passwordConfirmation) {
       alert("senhas não conferem");
     }
@@ -59,14 +55,12 @@ const RegisterUser = () => {
         .then((res) => {
           alert("Cadastrado com sucesso");
           console.log(res);
-          Navigate("/")
+          Navigate("/");
         })
         .catch((e) => {
           console.error(e);
           alert(e.response.data.message);
         });
- 
-        
     }
   };
 
@@ -88,7 +82,6 @@ const RegisterUser = () => {
           <label htmlFor="email">Email</label>
           <input
             id="email"
-           
             type="email"
             placeholder="Digite aqui seu email "
             required
@@ -106,7 +99,7 @@ const RegisterUser = () => {
               />
             </button>
             <input
-              id="password"       
+              id="password"
               type="password"
               placeholder="Digite aqui sua senha "
               required

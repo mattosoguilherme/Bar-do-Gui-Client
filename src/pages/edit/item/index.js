@@ -14,20 +14,19 @@ const EditItem = () => {
   const [itemDB, setItem] = useState();
   const [logged, setLogged] = useState(false);
   const [admin, setAdmin] = useState("");
-  const token = localStorage.token;
-  const { id } = useParams();
-  if (!token) {
-    setLogged(false);
-  }
-  const config = {
-    headers: { Authorization: `Bearer ${token}` },
-  };
 
-  console.log(itemDB);
+  const { id } = useParams();
 
   useEffect(() => {
+    const token = localStorage.token;
+    if (!token) {
+      setLogged(false);
+    }
+    const configuration = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
     axios
-      .get(`/menu/${id}`, config)
+      .get(`/menu/${id}`, configuration)
       .then((r) => {
         setItem(r.data);
       })
@@ -37,8 +36,16 @@ const EditItem = () => {
   }, []);
 
   useEffect(() => {
+    const token = localStorage.token;
+    if (!token) {
+      setLogged(false);
+    }
+    const configuration = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
+
     axios
-      .get("/auth", config)
+      .get("/auth", configuration)
       .then((res) => {
         setAdmin(res.data.role);
         setLogged(true);
@@ -61,10 +68,12 @@ const EditItem = () => {
       price: Number(price),
       product,
     };
-    console.log(item);
+    const configuration = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
 
     axios
-      .patch(`/menu/${id}`, item, config)
+      .patch(`/menu/${id}`, item, configuration)
       .then((r) => {
         alert("item atualizado");
         navigate("/menu");
