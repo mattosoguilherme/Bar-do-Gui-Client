@@ -7,7 +7,7 @@ import axios from "axios";
 import GlobalStyle from "./styles/global";
 
 
-axios.defaults.baseURL = "https://bardogui.herokuapp.com/";
+axios.defaults.baseURL = "https://serverbardogui.herokuapp.com/";
 axios.defaults.headers.post["Content-Type"] = "application/json";
 
 ReactDOM.render(
