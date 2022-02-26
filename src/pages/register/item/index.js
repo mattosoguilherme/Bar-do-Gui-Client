@@ -61,7 +61,7 @@ const RegisterItem = () => {
         console.log(r);
         navigate("/menu");
       })
-      .catch((e) => console.error(e));
+      .catch((e) => console.error(e.data.message));
   };
 
   return (
