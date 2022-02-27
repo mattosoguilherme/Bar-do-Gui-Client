@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
 
 import ContainerS from "../style";
 import Item from "../../card/item";
@@ -9,7 +9,7 @@ export const listOrders = [];
 const GroupMenu = () => {
   const [item, setItem] = useState([]);
   const [logged, setLogged] = useState(false);
-  
+
   useEffect(() => {
     const token = localStorage.token;
 
@@ -36,15 +36,17 @@ const GroupMenu = () => {
       const noOrderIndex = listOrders.indexOf(i);
       listOrders.splice(noOrderIndex, 1);
     }
-    console.log(listOrders)
+    console.log(listOrders);
   };
-
 
   return (
     <ContainerS>
       {item.map((item) => (
         <Item
-          onChange={(e) => handle(e.target.checked, item)}
+          onChange={(e) => {
+            handle(e.target.checked, item);
+            console.log(e);
+          }}
           data={item}
           key={item.id}
         />

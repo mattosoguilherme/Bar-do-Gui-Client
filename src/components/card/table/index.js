@@ -93,10 +93,10 @@ const CardTable = (props) => {
                 className="btn btn-secondary"
                 data-bs-dismiss="modal"
               >
-                Close
+                Fechar
               </button>
-              <button type="button" className="btn btn-primary">
-                Understood
+              <button type="submit" className="btn btn-primary">
+                Salvar pedidos
               </button>
             </div>
           </div>
