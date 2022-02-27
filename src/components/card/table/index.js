@@ -28,6 +28,23 @@ const CardTable = (props) => {
     }
   };
 
+  const HandleDelete = () => {
+    const token = localStorage.token;
+
+    const config = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
+
+    axios
+      .delete(`/table/${table.id}`, config)
+      .then((r) => {
+        console.log(r);
+        alert(`${r.data.table} foi deletado!`);
+        Navigate("/");
+      })
+      .catch((e) => console.error(e));
+  };
+
   return (
     <>
       <CardTableS>
@@ -75,11 +92,48 @@ const CardTable = (props) => {
           <div className="group-btn">
             <button type="button">Editar</button>
 
-            <Link to={`/home/${table.id}`}>
-              <button type="button">Finalizar</button>
-            </Link>
+            <button
+              type="button"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            >
+              Finalizar
+            </button>
           </div>
         </Container>
+
+        <div
+          className="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title" id="exampleModalLabel"></h5>
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div className="modal-body">
+                Você realmente deseja excluir essa mesa?
+              </div>
+              <div className="modal-footer">
+                <button type="button" data-bs-dismiss="modal">
+                  Não
+                </button>
+                <button onClick={HandleDelete} type="button">
+                  Sim
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </CardTableS>
 
       <div
