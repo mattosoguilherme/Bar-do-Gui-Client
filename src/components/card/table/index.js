@@ -8,20 +8,18 @@ const CardTable = (props) => {
   const table = props.data;
   const [command, setCommand] = useState();
   const navigate = useNavigate();
-  const [message, setMessage] = useState(null)
- 
 
-  useEffect( () => {
+  useEffect(() => {
     const token = localStorage.token;
     const config = { headers: { Authorization: `Bearer ${token}` } };
 
-  axios
+    axios
       .get(`/table/${table.id}`, config)
       .then((res) => setCommand(res.data))
       .catch((err) => console.log(err));
   }, []);
-  
-  const HandleSubmit = () => {
+
+  const HandleSubmit = async () => {
     const token = localStorage.token;
 
     const config = {
@@ -34,16 +32,13 @@ const CardTable = (props) => {
         tableId: table.id,
       };
 
-      axios
+      await axios
         .post("/order", order, config)
-        .then((res) => setMessage(res))
+        .then((res) => {
+          alert(`Pedido adicionado a mesa ${table.numberTable}`);
+          navigate("/home/#");
+        })
         .catch((e) => console.log(e));
-    }
-
-
-    if(message){
-      alert(`Pedido adicionado a mesa ${table.numberTable}`)
-      navigate("/home/#")
     }
   };
 
@@ -140,16 +135,14 @@ const CardTable = (props) => {
                 ></button>
               </div>
               <div className="modal-body">
-
-              Total da comanda: {command && <>R$ {command.total},00</> }
-                
+                Total da comanda: {command && <>R$ {command.total},00</>}
               </div>
               <div className="modal-footer">
                 <button type="button" data-bs-dismiss="modal">
                   Voltar
                 </button>
                 <button onClick={HandleDelete} type="reset">
-                Recebido
+                  Recebido
                 </button>
               </div>
             </div>
