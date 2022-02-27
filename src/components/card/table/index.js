@@ -1,16 +1,26 @@
 import { Link } from "react-router-dom";
 import GroupMenu, { ListOrders } from "../../Groups/menu";
-import GroupTable from "../../Groups/table";
+import axios from "axios";
 import { Container, CardTableS } from "../style";
 
 const CardTable = (props) => {
   const table = props.data;
-  
-  
 
   const HandleSubmit = () => {
-    console.log(ListOrders)
-  }
+    const config = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
+
+    for (let index = 0; index < ListOrders.length; index++) {
+      const order = {
+        menuId: ListOrders[index].id,
+        tableId: table.id,
+      };
+
+      axios.post("/order",order,config).then(res => alert(`Deu certo ${res.data}`,)).catch((e) => console.log(e))
+
+    }
+  };
 
   return (
     <>
@@ -89,9 +99,7 @@ const CardTable = (props) => {
               ></button>
             </div>
             <div className="modal-body">
-
-              <GroupMenu/>
-
+              <GroupMenu />
             </div>
             <div className="modal-footer">
               <button
@@ -101,7 +109,11 @@ const CardTable = (props) => {
               >
                 Fechar
               </button>
-              <button type="button" onClick={HandleSubmit} className="btn btn-primary">
+              <button
+                type="button"
+                onClick={HandleSubmit}
+                className="btn btn-primary"
+              >
                 Salvar pedidos
               </button>
             </div>
