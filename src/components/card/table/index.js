@@ -36,7 +36,7 @@ const CardTable = (props) => {
 
       axios
         .post("/order", order, config)
-        .then((res) => res)
+        .then((res) => setMessage(res))
         .catch((e) => console.log(e));
     }
 
