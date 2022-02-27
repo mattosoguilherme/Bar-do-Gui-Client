@@ -11,7 +11,7 @@ import { Alert } from "react-bootstrap";
 
 const EditUser = () => {
   const navigate = useNavigate();
-  const [user, setUser] = useState("");
+
   const [pass, setPass] = useState("");
   const [visible, setVisible] = useState(true);
   const [logged, setLogged] = useState(false);
@@ -29,7 +29,6 @@ const EditUser = () => {
       .get(`/user/${id}`, config)
       .then((res) => {
         setLogged(true);
-        setUser(res.data);
         console.log(res);
       })
       .catch((e) => console.error(e));

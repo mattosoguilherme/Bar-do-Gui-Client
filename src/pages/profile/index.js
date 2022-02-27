@@ -11,15 +11,17 @@ const Profile = () => {
   const [edit, setEdit] = useState(false);
   const [logged, setLogged] = useState(false);
   const [user, setUser] = useState();
-  const token = localStorage.token;
 
-  if (!token) {
-    setLogged(false);
-  }
-  const config = {
-    headers: { Authorization: `Bearer ${token}` },
-  };
   useEffect(() => {
+    const token = localStorage.token;
+
+    if (!token) {
+      setLogged(false);
+    }
+    const config = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
+
     axios
       .get("/auth", config)
       .then((res) => {
@@ -40,6 +42,15 @@ const Profile = () => {
   };
 
   const HandleDelete = () => {
+    const token = localStorage.token;
+
+    if (!token) {
+      setLogged(false);
+    }
+    const config = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
+
     axios
       .delete("/user", config)
       .then((r) => {
@@ -63,16 +74,16 @@ const Profile = () => {
       axios
         .patch("/user", edited, config)
         .then((r) => {
-          alert("Nome alterado com sucesso")
-          setEdit(false)
+          alert("Nome alterado com sucesso");
+          setEdit(false);
         })
         .catch((e) => console.error(e.response));
     } else {
       axios
         .patch("/user", editedUser, config)
         .then((r) => {
-          alert("Você precisará fazer o login novamente")
-          Navigate("/")
+          alert("Você precisará fazer o login novamente");
+          Navigate("/");
         })
         .catch((e) => {
           console.error(e.response);

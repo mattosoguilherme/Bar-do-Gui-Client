@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import GroupMenu, { ListOrders } from "../../Groups/menu";
 import axios from "axios";
 import { Container, CardTableS } from "../style";
@@ -23,7 +23,7 @@ const CardTable = (props) => {
 
       axios
         .post("/order", order, config)
-        .then((res) => navigate("/"))
+        .then((res) => navigate("/ "))
         .catch((e) => console.log(e));
     }
   };
