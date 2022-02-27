@@ -53,7 +53,7 @@ const CardTable = (props) => {
       .then((r) => {
         console.log(r);
         alert(`Mesa ${table.numberTable} foi deletada!`);
-        navigate("/");
+        navigate("/home");
       })
       .catch((e) => console.error(e));
   };
