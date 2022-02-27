@@ -5,6 +5,11 @@ import { Container, CardTableS } from "../style";
 
 const CardTable = (props) => {
   const table = props.data;
+  const orders = props.order;
+
+  const HandleSubmit = () => {
+    console.log(orders)
+  }
 
   return (
     <>
@@ -95,7 +100,7 @@ const CardTable = (props) => {
               >
                 Fechar
               </button>
-              <button type="submit" className="btn btn-primary">
+              <button type="button" onClick={HandleSubmit} className="btn btn-primary">
                 Salvar pedidos
               </button>
             </div>

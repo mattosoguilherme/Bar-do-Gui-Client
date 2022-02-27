@@ -36,7 +36,7 @@ const GroupMenu = () => {
       const noOrderIndex = listOrders.indexOf(i);
       listOrders.splice(noOrderIndex, 1);
     }
-    console.log(listOrders);
+    
   };
 
   return (
@@ -45,8 +45,8 @@ const GroupMenu = () => {
         <Item
           onChange={(e) => {
             Handle(e.target.checked, item);
-            console.log(e);
           }}
+          order={listOrders}
           data={item}
           key={item.id}
         />
