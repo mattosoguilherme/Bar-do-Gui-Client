@@ -7,6 +7,11 @@ const CardTable = (props) => {
   const table = props.data;
 
   const HandleSubmit = () => {
+    const token = localStorage.token;
+
+    if (!token) {
+      setLogged(false);
+    }
     const config = {
       headers: { Authorization: `Bearer ${token}` },
     };
@@ -17,8 +22,10 @@ const CardTable = (props) => {
         tableId: table.id,
       };
 
-      axios.post("/order",order,config).then(res => alert(`Deu certo ${res.data}`,)).catch((e) => console.log(e))
-
+      axios
+        .post("/order", order, config)
+        .then((res) => alert(`Deu certo ${res.data}`))
+        .catch((e) => console.log(e));
     }
   };
 
