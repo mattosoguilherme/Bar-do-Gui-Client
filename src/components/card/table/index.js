@@ -2,12 +2,25 @@ import { useNavigate } from "react-router-dom";
 import GroupMenu, { ListOrders } from "../../Groups/menu";
 import axios from "axios";
 import { Container, CardTableS } from "../style";
+import { useEffect, useState } from "react";
 
 const CardTable = (props) => {
   const table = props.data;
-
+  const [command, setCommand] = useState();
   const navigate = useNavigate();
+  
+ 
 
+  useEffect(() => {
+    const token = localStorage.token;
+    const config = { headers: { Authorization: `Bearer ${token}` } };
+
+    axios
+      .get(`/table/${table.id}`, config)
+      .then((res) => setCommand(res.data))
+      .catch((err) => console.log(err));
+  }, []);
+  console.log(command)
   const HandleSubmit = () => {
     const token = localStorage.token;
 
@@ -23,7 +36,7 @@ const CardTable = (props) => {
 
       axios
         .post("/order", order, config)
-        .then((res) => navigate("/ "))
+        .then((res) => res)
         .catch((e) => console.log(e));
     }
   };
@@ -39,7 +52,7 @@ const CardTable = (props) => {
       .delete(`/table/${table.id}`, config)
       .then((r) => {
         console.log(r);
-        alert(`${r.data.table} foi deletado!`);
+        alert(`Mesa ${table.numberTable} foi deletada!`);
         navigate("/");
       })
       .catch((e) => console.error(e));
@@ -149,7 +162,7 @@ const CardTable = (props) => {
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="staticBackdropLabel">
-                Modal title
+                Cardápio
               </h5>
               <button
                 type="button"

@@ -187,21 +187,19 @@ export const Container = styled.div`
     justify-content: space-between;
   }
 
-  .header div{
+  .header div {
     align-self: center;
     margin-bottom: 0.7rem;
   }
 
-  .header div button{
-    border-radius:0.5rem;
-    padding:0.2rem;
-    &:hover{
+  .header div button {
+    border-radius: 0.5rem;
+    padding: 0.2rem;
+    &:hover {
       background-color: transparent;
       color: white;
     }
   }
-
- 
 `;
 
 export default CardS;
