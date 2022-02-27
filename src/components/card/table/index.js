@@ -8,7 +8,7 @@ const CardTable = (props) => {
   const table = props.data;
   const [command, setCommand] = useState();
   const navigate = useNavigate();
-  
+  const [message, setMessage] = useState(null)
  
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const CardTable = (props) => {
       .then((res) => setCommand(res.data))
       .catch((err) => console.log(err));
   }, []);
-  console.log(command)
+  
   const HandleSubmit = () => {
     const token = localStorage.token;
 
@@ -38,6 +38,12 @@ const CardTable = (props) => {
         .post("/order", order, config)
         .then((res) => res)
         .catch((e) => console.log(e));
+    }
+
+
+    if(message){
+      alert(`Pedido adicionado a mesa ${table.numberTable}`)
+      navigate("/home")
     }
   };
 
@@ -142,7 +148,7 @@ const CardTable = (props) => {
                 <button type="button" data-bs-dismiss="modal">
                   Voltar
                 </button>
-                <button onClick={HandleDelete} type="button">
+                <button onClick={HandleDelete} type="reset">
                   Valor Recebido
                 </button>
               </div>
