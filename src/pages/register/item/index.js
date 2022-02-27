@@ -46,6 +46,7 @@ const RegisterItem = () => {
       price,
       product,
     };
+    console.log(item)
     const token = localStorage.token;
     if (!token) {
       setLogged(false);
