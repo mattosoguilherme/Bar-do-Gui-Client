@@ -17,7 +17,7 @@ const CardTable = (props) => {
       .get(`/table/${table.id}`, config)
       .then((res) => setCommand(res.data))
       .catch((err) => console.log(err));
-  }, []);
+  }, [command]);
 
   const HandleSubmit = async () => {
     const token = localStorage.token;
@@ -54,7 +54,7 @@ const CardTable = (props) => {
       .then((r) => {
         console.log(r);
         alert(`Mesa ${table.numberTable} foi deletada!`);
-        navigate("/home");
+        navigate("/home/#");
       })
       .catch((e) => console.error(e));
   };
