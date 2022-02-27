@@ -134,14 +134,16 @@ const CardTable = (props) => {
                 ></button>
               </div>
               <div className="modal-body">
-                Você realmente deseja excluir essa mesa?
+
+              Total da comanda: {command.total}
+                
               </div>
               <div className="modal-footer">
                 <button type="button" data-bs-dismiss="modal">
-                  Não
+                  Voltar
                 </button>
                 <button onClick={HandleDelete} type="button">
-                  Sim
+                  Valor Recebido
                 </button>
               </div>
             </div>
