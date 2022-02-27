@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import GroupMenu, { ListOrders } from "../../Groups/menu";
 import axios from "axios";
 import { Container, CardTableS } from "../style";
@@ -6,9 +6,11 @@ import { Container, CardTableS } from "../style";
 const CardTable = (props) => {
   const table = props.data;
 
+  const navigate = useNavigate();
+
   const HandleSubmit = () => {
     const token = localStorage.token;
-    
+
     const config = {
       headers: { Authorization: `Bearer ${token}` },
     };
@@ -21,7 +23,7 @@ const CardTable = (props) => {
 
       axios
         .post("/order", order, config)
-        .then((res) => alert(`Deu certo ${res.data}`))
+        .then((res) => navigate("/home"))
         .catch((e) => console.log(e));
     }
   };
