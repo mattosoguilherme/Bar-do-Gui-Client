@@ -23,7 +23,7 @@ const CardTable = (props) => {
 
       axios
         .post("/order", order, config)
-        .then((res) => navigate("/home"))
+        .then((res) => navigate("/home/"))
         .catch((e) => console.log(e));
     }
   };
