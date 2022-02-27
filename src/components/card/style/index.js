@@ -94,6 +94,30 @@ export const CardTableS = styled.div`
       color: white;
     }
   }
+
+  .modal-header {
+    background-color: #260707;
+    border-bottom: none;
+  }
+  .modal-body {
+    background-color: #260707;
+  }
+  .modal-footer {
+    border-top: none;
+    background-color: #260707;
+  }
+
+  .modal-footer button {
+    width: 8rem;
+    height: 3rem;
+    border-radius: 0.3rem;
+    font-size: 2rem;
+    background-color: #d9c5c5;
+    &:hover {
+      background-color: transparent;
+      color: white;
+    }
+  }
 `;
 
 export const CardItem = styled.div`
