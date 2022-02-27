@@ -141,7 +141,7 @@ const CardTable = (props) => {
               </div>
               <div className="modal-body">
 
-              Total da comanda: {command && <>{command.total}</> }
+              Total da comanda: {command && <>R$ {command.total},00</> }
                 
               </div>
               <div className="modal-footer">

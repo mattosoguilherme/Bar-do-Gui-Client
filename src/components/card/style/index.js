@@ -101,6 +101,7 @@ export const CardTableS = styled.div`
   }
   .modal-body {
     background-color: #260707;
+    font-size:3rem
   }
   .modal-footer {
     border-top: none;
