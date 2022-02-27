@@ -11,11 +11,11 @@ const CardTable = (props) => {
   const [message, setMessage] = useState(null)
  
 
-  useEffect(() => {
+  useEffect( () => {
     const token = localStorage.token;
     const config = { headers: { Authorization: `Bearer ${token}` } };
 
-    axios
+  axios
       .get(`/table/${table.id}`, config)
       .then((res) => setCommand(res.data))
       .catch((err) => console.log(err));
@@ -141,7 +141,7 @@ const CardTable = (props) => {
               </div>
               <div className="modal-body">
 
-              Total da comanda: {command.total}
+              Total da comanda: {command && <>{command.total}</> }
                 
               </div>
               <div className="modal-footer">
