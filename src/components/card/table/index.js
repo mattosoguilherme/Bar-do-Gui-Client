@@ -23,7 +23,7 @@ const CardTable = (props) => {
 
       axios
         .post("/order", order, config)
-        .then((res) => navigate("/home/"))
+        .then((res) => navigate("/"))
         .catch((e) => console.log(e));
     }
   };
@@ -40,7 +40,7 @@ const CardTable = (props) => {
       .then((r) => {
         console.log(r);
         alert(`${r.data.table} foi deletado!`);
-        Navigate("/");
+        navigate("/");
       })
       .catch((e) => console.error(e));
   };
