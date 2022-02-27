@@ -4,11 +4,12 @@ import { useEffect, useState } from "react";
 import ContainerS from "../style";
 import Item from "../../card/item";
 
-export const listOrders = [];
+export const ListOrders = [];
 
 const GroupMenu = () => {
   const [item, setItem] = useState([]);
   const [logged, setLogged] = useState(false);
+  
 
   useEffect(() => {
     const token = localStorage.token;
@@ -31,10 +32,10 @@ const GroupMenu = () => {
 
   const Handle = (e, i) => {
     if (e) {
-      listOrders.push(i);
+      ListOrders.push(i);
     } else {
-      const noOrderIndex = listOrders.indexOf(i);
-      listOrders.splice(noOrderIndex, 1);
+      const noOrderIndex = ListOrders.indexOf(i);
+      ListOrders.splice(noOrderIndex, 1);
     }
     
   };
@@ -46,7 +47,6 @@ const GroupMenu = () => {
           onChange={(e) => {
             Handle(e.target.checked, item);
           }}
-          order={listOrders}
           data={item}
           key={item.id}
         />

@@ -1,14 +1,15 @@
 import { Link } from "react-router-dom";
-import GroupMenu from "../../Groups/menu";
+import GroupMenu, { ListOrders } from "../../Groups/menu";
 import GroupTable from "../../Groups/table";
 import { Container, CardTableS } from "../style";
 
 const CardTable = (props) => {
   const table = props.data;
-  const orders = props.order;
+  
+  
 
   const HandleSubmit = () => {
-    console.log(orders)
+    console.log(ListOrders)
   }
 
   return (
