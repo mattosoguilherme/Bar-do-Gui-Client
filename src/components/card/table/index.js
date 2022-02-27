@@ -43,7 +43,7 @@ const CardTable = (props) => {
 
     if(message){
       alert(`Pedido adicionado a mesa ${table.numberTable}`)
-      navigate("/home")
+      navigate("/home/#")
     }
   };
 
@@ -191,7 +191,7 @@ const CardTable = (props) => {
                 Fechar
               </button>
               <button
-                type="button"
+                type="reset"
                 onClick={HandleSubmit}
                 className="btn btn-primary"
               >
