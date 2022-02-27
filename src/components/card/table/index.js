@@ -149,7 +149,7 @@ const CardTable = (props) => {
                   Voltar
                 </button>
                 <button onClick={HandleDelete} type="reset">
-                  Valor Recebido
+                Recebido
                 </button>
               </div>
             </div>
