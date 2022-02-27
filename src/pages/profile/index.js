@@ -62,6 +62,14 @@ const Profile = () => {
   };
 
   const HandleSubmit = (event) => {
+    const token = localStorage.token;
+
+    if (!token) {
+      setLogged(false);
+    }
+    const config = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
     event.preventDefault();
     const name = event.target.name.value;
     const email = event.target.email.value;
