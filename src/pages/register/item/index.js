@@ -43,10 +43,10 @@ const RegisterItem = () => {
       title,
       imgUrl,
       description,
-      price,
+      price: Number(price),
       product,
     };
-    console.log(item)
+    
     const token = localStorage.token;
     if (!token) {
       setLogged(false);
