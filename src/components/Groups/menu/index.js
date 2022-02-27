@@ -29,7 +29,7 @@ const GroupMenu = () => {
       .catch((erro) => console.error(erro));
   }, [logged]);
 
-  const handle = (e, i) => {
+  const Handle = (e, i) => {
     if (e) {
       listOrders.push(i);
     } else {
@@ -44,7 +44,7 @@ const GroupMenu = () => {
       {item.map((item) => (
         <Item
           onChange={(e) => {
-            handle(e.target.checked, item);
+            Handle(e.target.checked, item);
             console.log(e);
           }}
           data={item}
