@@ -8,10 +8,7 @@ const CardTable = (props) => {
 
   const HandleSubmit = () => {
     const token = localStorage.token;
-
-    if (!token) {
-      setLogged(false);
-    }
+    
     const config = {
       headers: { Authorization: `Bearer ${token}` },
     };
