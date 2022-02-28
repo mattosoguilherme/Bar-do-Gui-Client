@@ -65,7 +65,7 @@ const RegisterTable = () => {
             <FormRegister onSubmit={handleSubmit}>
               <h1>Cadastro Mesa</h1>
               <label>Observação</label>
-              <textarea id="observation" placeholder="Digite aqui..." />
+              <textarea id="observation" placeholder="Digite aqui..." required />
 
               <div className="group-btn">
                 <Link to="/home">
