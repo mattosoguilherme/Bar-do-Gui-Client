@@ -20,6 +20,8 @@ const CardTable = (props) => {
   }, [command]);
 
   const HandleSubmit = async () => {
+  console.log(ListOrders)
+
     const token = localStorage.token;
 
     const config = {
@@ -35,7 +37,7 @@ const CardTable = (props) => {
       await axios
         .post("/order", order, config)
         .then((res) => {
-          alert(`Pedido adicionado a mesa ${table.numberTable}`);
+          alert(`${ListOrders[index].title} adicionado a mesa ${table.numberTable}`);
           navigate("/home/#");
         })
         .catch((e) => console.log(e));
