@@ -99,8 +99,6 @@ const EditItem = () => {
       .catch((e) => {
         console.error(e);
       });
-
-      
   };
 
   return (
@@ -111,59 +109,63 @@ const EditItem = () => {
           <ContainerAdm>
             <FormRegisterAdm onSubmit={HandleSubmit}>
               <h1>Editando produto</h1>
-              <label htmlFor="title">Nome</label>
-              <input
-                required
-                id="title"
-                name="title"
-                type="text"
-                defaultValue={itemDB.title}
-                placeholder="Digite aqui o nome do produto"
-              />
+              {itemDB && (
+                <>
+                  <label htmlFor="title">Nome</label>
+                  <input
+                    required
+                    id="title"
+                    name="title"
+                    type="text"
+                    defaultValue={itemDB.title}
+                    placeholder="Digite aqui o nome do produto"
+                  />
 
-              <label htmlFor="imgUrl">Imagel do Produto</label>
-              <input
-                defaultValue={itemDB.imgUrl}
-                required
-                id="imgUrl"
-                name="imgUrl"
-                type="url"
-                placeholder="Digite aqui a url da imagem"
-              />
+                  <label htmlFor="imgUrl">Imagel do Produto</label>
+                  <input
+                    defaultValue={itemDB.imgUrl}
+                    required
+                    id="imgUrl"
+                    name="imgUrl"
+                    type="url"
+                    placeholder="Digite aqui a url da imagem"
+                  />
 
-              <label htmlFor="description">Descricação</label>
-              <textarea
-                defaultValue={itemDB.description}
-                required
-                type="text"
-                name="description"
-                id="description"
-                placeholder="Digite aqui o nome do produto"
-              />
+                  <label htmlFor="description">Descricação</label>
+                  <textarea
+                    defaultValue={itemDB.description}
+                    required
+                    type="text"
+                    name="description"
+                    id="description"
+                    placeholder="Digite aqui o nome do produto"
+                  />
 
-              <label htmlFor="price">Preço</label>
-              <input
-                defaultValue={itemDB.price}
-                required
-                id="price"
-                name="price"
-                type="number"
-                placeholder="Digite aqui o preço"
-              />
+                  <label htmlFor="price">Preço</label>
+                  <input
+                    defaultValue={itemDB.price}
+                    required
+                    id="price"
+                    name="price"
+                    type="number"
+                    placeholder="Digite aqui o preço"
+                  />
 
-              <label htmlFor="product">Tipo de Produto</label>
-              <select
-                defaultValue={itemDB.product}
-                type="text"
-                name="product"
-                id="product"
-                required
-              >
-                <option>Bebida</option>
-                <option>Bebida Alcoólica</option>
-                <option>Lanche</option>
-                <option>Petiscos</option>
-              </select>
+                  <label htmlFor="product">Tipo de Produto</label>
+                  <select
+                    defaultValue={itemDB.product}
+                    type="text"
+                    name="product"
+                    id="product"
+                    required
+                  >
+                    <option>Bebida</option>
+                    <option>Bebida Alcoólica</option>
+                    <option>Lanche</option>
+                    <option>Petiscos</option>
+                  </select>
+                </>
+              )}
 
               <div className="group-btn">
                 <Link to="/menu">
